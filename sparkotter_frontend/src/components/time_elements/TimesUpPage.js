@@ -1,6 +1,6 @@
 // <img timesup />
 //< Link to= "/options" & "/sparkive"
-import React, {Component, Fragment} from 'react';
+import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
 const TimesUpPage = (props) => {

@@ -12,7 +12,8 @@ class PromptContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      prompt: null
+      prompt: null,
+
     }
 
     //this.handleOptions = this.handleOptions.bind(this);

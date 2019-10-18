@@ -1,6 +1,6 @@
 // "/spark"
 // props time  & randomPrompt
-import React, {Component, Fragment} from 'react';
+import React, {Fragment} from 'react';
 
 const PromptPage = (props) => {
 
