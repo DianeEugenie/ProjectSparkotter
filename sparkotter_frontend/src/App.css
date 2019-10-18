@@ -6,7 +6,7 @@
   height: 40vmin;
 }
 
-.App-header {
+#root {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,6 +15,18 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 5px;
+}
+
+button {
+  background-color: white;
+  border-radius: 5px;
+  margin: 2px;
+}
+button:hover {
+  background-color: lightgrey;
+  transform: translate(0.5px, 1px);
+
 }
 
 .App-link {
