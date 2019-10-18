@@ -1,0 +1,2 @@
+// "/spark"
+// props time  & randomPrompt
