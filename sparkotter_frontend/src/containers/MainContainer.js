@@ -3,6 +3,7 @@
 
 
 import React, {Component, Fragment} from 'react';
+import PromptContainer from './prompts/PromptContainer';
 
 
 
@@ -21,6 +22,7 @@ class MainContainer extends Component{
     return (
       <Fragment>
       Time to Spark!
+      <PromptContainer />
 
 
       </Fragment>
