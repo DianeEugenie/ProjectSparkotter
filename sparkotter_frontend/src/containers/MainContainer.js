@@ -21,7 +21,6 @@ class MainContainer extends Component{
 
     return (
       <Fragment>
-      Time to Spark!
       <PromptContainer />
 
 

@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import TimesUpPage from '../../components/time_elements/TimesUpPage';
 import PromptPage from '../../components/prompts/PromptPage';
 import StartPage from '../../components/prompts/StartPage';
+import OptionsForm from '../../components/time_elements/OptionsForm';
 
 class PromptContainer extends Component {
   constructor(props){
@@ -34,6 +35,10 @@ class PromptContainer extends Component {
 
             <Route exact path="/spark/timesup" render={(props) => {
               return <TimesUpPage />
+            }}/>
+
+            <Route exact path="/options" render={(props) => {
+              return <OptionsForm />
             }}/>
           </Switch>
         </Fragment>
