@@ -2,9 +2,12 @@ package com.example.codeclan.sparkotter_backend.components;
 
 
 import com.example.codeclan.sparkotter_backend.Adjective;
+import com.example.codeclan.sparkotter_backend.Noun;
 import com.example.codeclan.sparkotter_backend.models.AdjectiveWord;
+import com.example.codeclan.sparkotter_backend.models.NounWord;
 import com.example.codeclan.sparkotter_backend.models.Prompt;
 import com.example.codeclan.sparkotter_backend.repositories.AdjectiveRepository.AdjectiveRepository;
+import com.example.codeclan.sparkotter_backend.repositories.NounRepository.NounRepository;
 import com.example.codeclan.sparkotter_backend.repositories.PromptRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -20,6 +23,9 @@ public class DataLoader implements ApplicationRunner {
     @Autowired
     AdjectiveRepository adjectiveRepository;
 
+    @Autowired
+    NounRepository nounRepository;
+
     public DataLoader() {
     }
 
@@ -30,15 +36,14 @@ public class DataLoader implements ApplicationRunner {
         Prompt prompt2 = new Prompt();
         promptRepository.save(prompt2);
 
-        AdjectiveWord word = new AdjectiveWord(Adjective.ACCEPTABLE);
-        adjectiveRepository.save(word);
-
-        AdjectiveWord word1 = new AdjectiveWord(Adjective.ALIVE);
-        adjectiveRepository.save(word1);
-
         for (Adjective adjective : Adjective.getValues()){
             AdjectiveWord newWord = new AdjectiveWord(adjective);
             adjectiveRepository.save(newWord);
+        }
+
+        for (Noun noun : Noun.getValues()){
+            NounWord newNoun = new NounWord(noun);
+            nounRepository.save(newNoun);
         }
     }
 }
