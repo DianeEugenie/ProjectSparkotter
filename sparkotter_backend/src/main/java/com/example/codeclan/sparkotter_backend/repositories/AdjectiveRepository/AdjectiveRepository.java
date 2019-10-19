@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface AdjectiveRepository extends JpaRepository<AdjectiveWord, Long> {
+public interface AdjectiveRepository extends JpaRepository<AdjectiveWord, Long>, AdjectiveRepositoryCustom {
 
+//    AdjectiveWord getAdjectiveOrderByRandomLimit1();
 }

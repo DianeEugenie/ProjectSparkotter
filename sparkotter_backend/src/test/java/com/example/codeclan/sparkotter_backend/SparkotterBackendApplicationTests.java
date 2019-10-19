@@ -57,12 +57,19 @@ class SparkotterBackendApplicationTests {
 	@Test
 	void canGetAdjectiveFromModel() {
 		AdjectiveWord word = new AdjectiveWord(Adjective.ACCURATE);
-		assertEquals("Accurate", word.getAdjective());
+		assertEquals("Accurate", word.getAdjectiveCap());
 	}
 
 	@Test
 	void canGetAdjectiveFromRepository() {
 		List<AdjectiveWord> found = adjectiveRepository.findAll();
-		assertEquals(2, found.size());
+		assertEquals(87, found.size());
+	}
+
+	@Test
+	void canGetRandomAdjectiveWord(){
+		AdjectiveWord found = adjectiveRepository.getRandomAdjective();
+		System.out.println(found.getAdjectiveCap());
+		assertNotNull(found);
 	}
 }
