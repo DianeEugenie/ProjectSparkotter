@@ -25,12 +25,8 @@ class MainContainer extends Component{
       <Router>
       <Fragment>
             <Switch>
-              <Route exact path="/" render={(props) => {
-                return <PromptContainer/>
-              }}/>
-              <Route exact path="/aboutus" render={(props) => {
-                return <AboutUs/>
-              }} />
+              <Route exact path="/" component={PromptContainer}/>
+              <Route exact path="/aboutus" component={AboutUs}/>
               <Route exact path="/sparkive" component={ArchiveContainer}/>
         </Switch>
       </Fragment>
