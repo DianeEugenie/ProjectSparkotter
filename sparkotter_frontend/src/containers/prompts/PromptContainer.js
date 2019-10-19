@@ -30,6 +30,7 @@ class PromptContainer extends Component {
       <Router>
         <Fragment>
           <Switch>
+
             <Route exact path="/" render={(props) => {
               return <StartPage />
             }} />

@@ -71,3 +71,7 @@ button.time-option-button:hover{
   justify-content: center;
   /* align-items: center; */
 }
+a {
+  color: white;
+  margin: 0 1em;
+}

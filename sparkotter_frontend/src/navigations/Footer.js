@@ -8,11 +8,14 @@ const Footer = (props) => {
   return (
 
     <Fragment>
+    <p>
+    <a href="/">Home</a>
       <a href="/aboutus">About us</a>
       <a href="/sparkive">Sparkive</a>
+      </p>
 
     </Fragment>
-  
+
 
   )
 }
