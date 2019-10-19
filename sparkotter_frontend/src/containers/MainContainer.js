@@ -4,7 +4,7 @@
 
 import React, {Component, Fragment} from 'react';
 import PromptContainer from './prompts/PromptContainer';
-
+import ArchiveContainer from './archives/ArchiveContainer';
 
 
 class MainContainer extends Component{
@@ -22,6 +22,7 @@ class MainContainer extends Component{
     return (
       <Fragment>
       <PromptContainer />
+      <ArchiveContainer /> 
 
 
       </Fragment>
