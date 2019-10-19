@@ -3,6 +3,8 @@ package com.example.codeclan.sparkotter_backend;
 import javassist.runtime.Inner;
 import org.springframework.beans.factory.Aware;
 
+import java.util.*;
+
 public enum Adjective {
     KNOWN ("Known"),
     INTELLIGENT("Intelligent"),
@@ -93,11 +95,20 @@ public enum Adjective {
     UNITED("United");
 
     private String name;
+    private static final List<Adjective> values = new ArrayList<>(Arrays.asList(Adjective.values()));
+    private static final int length = values.size();
+    private static final Random RANDOM = new Random();
 
     Adjective(String name) {
         this.name=name;
     }
-    public String getValue() {
+
+    public String getValue(){
         return name;
+    }
+
+    public static String getRandom()  {
+        Adjective adjective = values.get(RANDOM.nextInt(length));
+        return adjective.getValue();
     }
 }

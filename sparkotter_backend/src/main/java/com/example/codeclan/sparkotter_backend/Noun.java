@@ -1,5 +1,10 @@
 package com.example.codeclan.sparkotter_backend;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 public enum Noun {
     YOUTH ("Youth"),
     MENU ("Menu"),
@@ -304,12 +309,20 @@ public enum Noun {
     ;
 
     private String name;
+    private static final List<Noun> values = new ArrayList<>(Arrays.asList(Noun.values()));
+    private static final int length = values.size();
+    private static final Random RANDOM = new Random();
 
     Noun(String name) {
         this.name=name;
     }
 
-    public String getValue() {
+    public String getValue(){
         return name;
+    }
+
+    public static String getRandom()  {
+        Noun noun = values.get(RANDOM.nextInt(length));
+        return noun.getValue();
     }
 }
