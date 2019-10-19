@@ -9,7 +9,7 @@ class OptionsForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      selectedTime: 0
+      selectedTime: ''
     }
 
     this.handleOptions = this.handleOptions.bind(this);
@@ -23,11 +23,10 @@ class OptionsForm extends Component {
   }
 
   handleCreatedOption(event){
-   this.setState({selectedTime: event.target.value});
+    this.setState({selectedTime: event.target.value});
   }
 
-  handleSubmit(event){
-    event.preventDefault();
+  handleSubmit(){
     this.props.onSubmit(this.state.selectedTime);
   }
 
@@ -70,13 +69,19 @@ class OptionsForm extends Component {
       </Link>
 
 
-      <form onSubmit={this.handleSubmit}>
+
         <input type='number'
+        name="time"
         min='0'
         className="time-select"
+        placeholder='0'
         onChange={this.handleCreatedOption} value={this.state.selectedTime} />
-        <button className="time-button">Inspire Me!</button>
-      </form>
+
+        <Link to="/spark">
+        <button type="submit"
+        onClick={this.handleSubmit}>Inspire Me!</button>
+        </Link>
+
 
 
     </Fragment>
