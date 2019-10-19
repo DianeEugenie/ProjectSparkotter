@@ -1,24 +1,16 @@
 import React, {Component, Fragment} from 'react';
 
-
-
-class MainContainer extends Component{
+class Timer extends Component{
   constructor(props){
-  super(props);
-  this.state = {
-      selectedTime: 10,
+    super(props);
+    const seconds = props.time * 60;
+    this.state = {
+      selectedTime: seconds
     }
 
     this.countingDown = this.countingDown.bind(this);
     this.intervalFunction = this.intervalFunction.bind(this);
   }
-
-
-  setMinuteTimer(){
-    const seconds = 1 * 60;
-    this.setState({selectedTime: seconds});
-  }
-
 
   intervalFunction(){
     setInterval(this.countingDown, 1000);
@@ -32,28 +24,27 @@ class MainContainer extends Component{
       counter -= 1;
       this.setState({selectedTime: counter});
     } else {
-      this.setState({selectedTime: "Time's up!"});
-      //add window.location "spark/timesup"
+      window.location = "/spark/timesup"
     }
 
 
   }
 
-
-
   render(){
+
+    let timer = new Date(1000 * this.state.selectedTime).toISOString().substr(11,8);
 
     return (
       <Fragment>
-      Time to Spark!
+      <div className='timer'>
+      <p>{timer}</p>
 
-      <p>{this.state.selectedTime}</p>
-
-      <button onClick={this.intervalFunction}>Timer for one minute!</button>
-
+      <button onClick={this.intervalFunction}
+      className="timer-button">Time To Spark!</button>
+      </div>
       </Fragment>
     );
   }
 }
 
-export default MainContainer;
+export default Timer;

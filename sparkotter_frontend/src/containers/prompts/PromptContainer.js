@@ -13,11 +13,16 @@ class PromptContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      prompt: null,
-
+      prompt: "Dropped Angel",
+      time: null
     }
 
-    //this.handleOptions = this.handleOptions.bind(this);
+    this.handleOptions = this.handleOptions.bind(this);
+  }
+
+  handleOptions(minutes){
+    this.setState({time: minutes})
+    // window.location = "/spark"
   }
 
   render(){
@@ -30,15 +35,16 @@ class PromptContainer extends Component {
             }} />
 
             <Route exact path="/spark" render={(props) => {
-              return <PromptPage />
+              return <PromptPage time={this.state.time} prompt={this.state.prompt} />
             }}/>
 
             <Route exact path="/spark/timesup" render={(props) => {
               return <TimesUpPage />
             }}/>
 
+
             <Route exact path="/options" render={(props) => {
-              return <OptionsForm />
+              return <OptionsForm onSubmit={this.handleOptions}/>
             }}/>
           </Switch>
         </Fragment>
@@ -48,3 +54,8 @@ class PromptContainer extends Component {
 }
 
 export default PromptContainer;
+
+// <Route exact path="/spark/:seconds" render={(props) => {
+//   const seconds = props.match.params.seconds;
+//   return <PromptPage time={seconds} prompt={this.state.prompt} />
+// }}/>

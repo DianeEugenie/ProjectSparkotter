@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 const StartPage = (props) => {
 
-  const optionUrl ="/options";
+  const optionUrl = '/options';
 
   return (
     <Fragment>

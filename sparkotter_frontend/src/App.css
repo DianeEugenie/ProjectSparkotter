@@ -17,6 +17,12 @@
   color: white;
   padding: 5px;
 }
+.prompt{
+  color: yellow;
+}
+.timer{
+  color: lightseagreen;
+}
 
 button {
   background-color: white;
@@ -28,7 +34,23 @@ button:hover {
   transform: translate(0.5px, 1px);
 
 }
+.timer-button{
+  padding: 0.5em 1.5em;
+}
+input.timer-option-button{
+  background-color: white;
+}
 
 .App-link {
   color: #09d3ac;
+}
+.timer{
+  background-color:purple;
+}
+
+.prompt-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
