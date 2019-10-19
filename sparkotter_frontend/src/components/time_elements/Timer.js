@@ -37,7 +37,7 @@ class Timer extends Component{
     return (
       <Fragment>
       <div className='timer'>
-      <p>{timer}</p>
+      <p className='timer-display'>{timer}</p>
 
       <button onClick={this.intervalFunction}
       className="timer-button">Time To Spark!</button>
