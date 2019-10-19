@@ -12,7 +12,7 @@ public class Prompt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "phrase")
     private String phrase;
@@ -31,11 +31,11 @@ public class Prompt {
         this.phrase = phrase;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

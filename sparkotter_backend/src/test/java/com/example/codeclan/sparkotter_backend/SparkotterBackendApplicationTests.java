@@ -1,6 +1,9 @@
 package com.example.codeclan.sparkotter_backend;
 
+
+import com.example.codeclan.sparkotter_backend.models.AdjectiveWord;
 import com.example.codeclan.sparkotter_backend.models.Prompt;
+import com.example.codeclan.sparkotter_backend.repositories.AdjectiveRepository.AdjectiveRepository;
 import com.example.codeclan.sparkotter_backend.repositories.PromptRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,9 @@ class SparkotterBackendApplicationTests {
 
 	@Autowired
 	PromptRepository promptRepository;
+
+	@Autowired
+	AdjectiveRepository adjectiveRepository;
 
 	@Test
 	void contextLoads() {
@@ -45,6 +51,18 @@ class SparkotterBackendApplicationTests {
 	@Test
 	void canGetPromptFromRepository() {
 		List<Prompt> found = promptRepository.findAll();
-		assertEquals(1, found.size());
+		assertEquals(2, found.size());
+	}
+
+	@Test
+	void canGetAdjectiveFromModel() {
+		AdjectiveWord word = new AdjectiveWord(Adjective.ACCURATE);
+		assertEquals("Accurate", word.getAdjective());
+	}
+
+	@Test
+	void canGetAdjectiveFromRepository() {
+		List<AdjectiveWord> found = adjectiveRepository.findAll();
+		assertEquals(2, found.size());
 	}
 }

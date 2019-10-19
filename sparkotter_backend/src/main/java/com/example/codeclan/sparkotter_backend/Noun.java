@@ -317,12 +317,16 @@ public enum Noun {
         this.name=name;
     }
 
-    public String getValue(){
+    public String getName(){
         return name;
+    }
+
+    public static List<Noun> getValues() {
+        return values;
     }
 
     public static String getRandom()  {
         Noun noun = values.get(RANDOM.nextInt(length));
-        return noun.getValue();
+        return noun.getName();
     }
 }

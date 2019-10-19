@@ -1,7 +1,5 @@
 package com.example.codeclan.sparkotter_backend;
 
-import javassist.runtime.Inner;
-import org.springframework.beans.factory.Aware;
 
 import java.util.*;
 
@@ -103,12 +101,16 @@ public enum Adjective {
         this.name=name;
     }
 
-    public String getValue(){
+    public String getName() {
         return name;
+    }
+
+    public static List<Adjective> getValues() {
+        return values;
     }
 
     public static String getRandom()  {
         Adjective adjective = values.get(RANDOM.nextInt(length));
-        return adjective.getValue();
+        return adjective.getName();
     }
 }
