@@ -3,9 +3,9 @@
 // compDidMount
 
 import React,{Component,Fragment} from 'react';
-// import ArchiveItem from '../../components/archives/ArchiveItem';
+import ArchiveItem from '../../components/archives/ArchiveItem';
 import ArchiveList from '../../components/archives/ArchiveList';
-// import ArchiveSelect from '../../components/archives/ArchiveSelect';
+import ArchiveSelect from '../../components/archives/ArchiveSelect';
 
 
 
@@ -13,7 +13,7 @@ class ArchiveContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      archiveItems: ["angel drop", "sparky apple"],
+      archiveItems: [{prompt:"angel drop", date: "Tuesday"}, {prompt:"sparky apple", date: "Thursday"}]
     }
   }
 
@@ -35,9 +35,11 @@ class ArchiveContainer extends Component{
 
   render(){
 return (
-    <ArchiveList archiveItems={
-      this.state.archiveItems
-    }/>
+  <Fragment>
+  <h2>Sparkive</h2>
+    <ArchiveList archiveItems={this.state.archiveItems}/>
+    <ArchiveSelect selections={this.state.archiveItems}/>
+    </Fragment>
 )
   }
 }
