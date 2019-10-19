@@ -30,10 +30,10 @@ class ArchiveSelect extends Component {
       {archiveOptions}
       </select>
       </div>)
+    }
   }
-}
 
 
 
-
-export default ArchiveSelect;
+  
+  export default ArchiveSelect;

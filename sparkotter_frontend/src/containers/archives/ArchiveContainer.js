@@ -34,20 +34,15 @@ class ArchiveContainer extends Component{
   // }
 
   render(){
-return (
-  <Fragment>
-  <h2>Sparkive</h2>
-    <ArchiveList archiveItems={this.state.archiveItems}/>
-    <ArchiveSelect selections={this.state.archiveItems}/>
-    </Fragment>
-)
+    return (
+      <Fragment>
+      <h2>Sparkive</h2>
+      <ArchiveList archiveItems={this.state.archiveItems}/>
+      <ArchiveSelect selections={this.state.archiveItems}/>
+      </Fragment>
+    )
   }
 }
-
-
-
-
-
 
 export default ArchiveContainer;
 

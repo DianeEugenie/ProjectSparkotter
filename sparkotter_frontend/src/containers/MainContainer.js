@@ -5,7 +5,8 @@
 import React, {Component, Fragment} from 'react';
 import PromptContainer from './prompts/PromptContainer';
 import ArchiveContainer from './archives/ArchiveContainer';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import AboutUs from '../components/aboutus/AboutUs';
 
 
 class MainContainer extends Component{
@@ -23,12 +24,14 @@ class MainContainer extends Component{
     return (
       <Router>
       <Fragment>
-        <PromptContainer />
-          <ArchiveContainer />
             <Switch>
-              <Route exact path="/" />
-              <Route  exact path="/aboutus" />
-              <Route  exact path="/sparkive" component={ArchiveContainer}/>
+              <Route exact path="/" render={(props) => {
+                return <PromptContainer/>
+              }}/>
+              <Route exact path="/aboutus" render={(props) => {
+                return <AboutUs/>
+              }} />
+              <Route exact path="/sparkive" component={ArchiveContainer}/>
         </Switch>
       </Fragment>
       </Router>
