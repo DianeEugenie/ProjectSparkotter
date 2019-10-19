@@ -11,11 +11,11 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
+  text-align: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 5px;
 }
 .prompt{
   color: yellow;
@@ -38,12 +38,44 @@ button:hover {
 }
 
 button.time-option-button{
-  background-color: #CD853F;
-  border: 4px solid #8B4513;
+  background-image: linear-gradient(to bottom right, #D868DE, #766CEC);
+  box-shadow: 2px 0 5px 0 #766CEC;
   font-size: 2.5em;
   margin: 0.2em;
   border-radius: 20px;
   min-width: 2em;
+}
+
+button.time-option-button:hover{
+  background-image: linear-gradient(to bottom right, #766CEC, #D868DE);
+}
+
+button.time-select-button{
+background-image: linear-gradient(to left, #4877E7, #66E8AF);
+box-shadow: 2px 0 5px 0 #4877E7;
+font-size: 2em;
+margin: 0.2em;
+border-radius: 20px;
+min-width: 2em;
+margin-top: 0.5em;
+}
+
+button.time-select-button:hover{
+background-image: linear-gradient(to right, #4877E7, #66E8AF);
+}
+
+input.time-select {
+  background-image: linear-gradient(to left, #4877E7, #66E8AF);
+  box-shadow: 2px 0 5px 0 #4877E7;
+  border-radius: 20px;
+  color: black;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+  text-align: center;
+}
+
+.time-select::placeholder {
+  color: #8B4513;
 }
 
 button.time-option-button:hover{
