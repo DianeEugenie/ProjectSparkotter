@@ -37,8 +37,9 @@ class OptionsForm extends Component {
   return (
     <Fragment>
     <p>OTTER IMAGE WILL BE HERE</p>
-    <p>How much time do you have?</p>
+    <p>Select your creative minutes!</p>
 
+    <div className='button-options'>
       <Link to="/spark">
       <button type='button'
       value='5'
@@ -64,23 +65,27 @@ class OptionsForm extends Component {
       onClick={this.handleOptions}>
       30
       </button>
-      <button type='button' value='60' onClick={this.handleOptions}>
-      1 Hour</button>
+      <button type='button'
+      value='60'
+      className="time-option-button"
+      onClick={this.handleOptions}>
+      60</button>
       </Link>
 
-
+  </div>
 
         <input type='number'
         name="time"
         min='0'
         className="time-select"
-        placeholder='0'
+        placeholder='Minutes..'
         onChange={this.handleCreatedOption} value={this.state.selectedTime} />
 
         <Link to="/spark">
         <button type="submit"
         onClick={this.handleSubmit}>Inspire Me!</button>
         </Link>
+
 
 
 

@@ -25,20 +25,29 @@
 }
 
 button {
-  background-color: white;
   border-radius: 5px;
   margin: 2px;
 }
 button:hover {
-  background-color: lightgrey;
+  background-color: beige;
   transform: translate(0.5px, 1px);
 
 }
 .timer-button{
   padding: 0.5em 1.5em;
 }
-input.timer-option-button{
-  background-color: white;
+
+button.time-option-button{
+  background-color: #CD853F;
+  border: 4px solid #8B4513;
+  font-size: 2.5em;
+  margin: 0.2em;
+  border-radius: 20px;
+  min-width: 2em;
+}
+
+button.time-option-button:hover{
+  background-color: beige;
 }
 
 .App-link {
@@ -53,4 +62,12 @@ input.timer-option-button{
   flex-direction: column;
   align-items: center;
   text-align: center;
+  flex-wrap: nowrap;
+}
+
+.button-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
 }
