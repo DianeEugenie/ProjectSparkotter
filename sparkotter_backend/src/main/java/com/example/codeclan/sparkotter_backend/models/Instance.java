@@ -31,6 +31,9 @@ public class Instance {
         this.dateCreated = new Date();
     }
 
+    public Instance() {
+    }
+
     public Long getId() {
         return id;
     }
