@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/adjectives")
+@RequestMapping(value = "/adjectives")
 public class AdjectiveController {
 
     @Autowired
     AdjectiveRepository adjectiveRepository;
 
+    @GetMapping(value="/random")
+    public AdjectiveWord getRandomAdjective(){
+        return adjectiveRepository.getRandomAdjective();
+    }
 
 }
