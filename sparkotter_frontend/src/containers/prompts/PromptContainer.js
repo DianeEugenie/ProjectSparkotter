@@ -22,8 +22,23 @@ class PromptContainer extends Component {
 
   handleOptions(minutes){
     this.setState({time: minutes})
-    // window.location = "/spark"
   }
+
+  //FETCH sequence
+  // Get fetch adjective
+  // Get fetch noun
+  // .Then Post adjective/noun PROMPT
+  // .Then {prompt: adj, noun}
+  // .Then Post new INSTANCE (send prompt and time)
+  // .Then display PROMPT and timer page.
+
+  //handleRespark(){}
+  //Get fetches old INSTANCE
+  //.Then {prompt: prompt.adjective + prompt.noun , time: instance.time} - prepopulating time select
+  //.Then POST new INSTANCE - old prompt with NEW time
+  //.Then display prompt and timer page.
+
+
 
   render(){
     return (

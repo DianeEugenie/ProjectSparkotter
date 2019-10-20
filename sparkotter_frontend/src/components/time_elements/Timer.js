@@ -12,15 +12,7 @@ class Timer extends Component{
     this.countingDown = this.countingDown.bind(this);
     this.clickTimer = this.clickTimer.bind(this);
   }
-  //
-  // intervalFunction(){
-  //   const interval = setInterval(this.countingDown, 1000);
-  //   clearInterval(interval)
-  //   setInterval(this.countingDown, 1000);
-  //   this.setState({timerOn: true});
-  //   this.setState({selectedTime: this.state.pausedTime});
-  //
-  // }
+
   componentDidMount(){
     const seconds = this.props.time * 60;
     this.setState({selectedTime: seconds,

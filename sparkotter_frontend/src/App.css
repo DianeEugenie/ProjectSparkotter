@@ -31,7 +31,7 @@ button.time-option-button{
   min-width: 2em;
 }
 
-button.time-option-button:hover{
+button.time-option-button:hover, button.time-option-button:focus{
   background-image: linear-gradient(to bottom right, #766CEC, #D868DE);
   transform: translate(0.5px, 1px);
 }
@@ -51,11 +51,15 @@ background-image: linear-gradient(to right, #4877E7, #66E8AF);
 transform: translate(0.5px, 1px);
 }
 
-button.timer-button{
+button.timer-button, button.start-button{
 background-image: linear-gradient(to right, #4877E7, #66E8AF);
 padding: 0.5em 1.5em;
 border-radius: 20px;
 font-size: 0.7em;
+}
+
+button.timer-button:hover, button.start-button:hover{
+background-image: linear-gradient(to left, #4877E7, #66E8AF);
 }
 
 input.time-select {

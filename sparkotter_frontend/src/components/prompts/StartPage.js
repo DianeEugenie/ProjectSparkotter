@@ -13,7 +13,7 @@ const StartPage = (props) => {
     <p>OTTER IMAGE WILL BE HERE</p>
       <p>This is the Start Page of the Prompt Container</p>
       <p>Which has a switch that leads to Time options!</p>
-      <Link to={optionUrl}><button>
+      <Link to={optionUrl}><button className="start-button">
       Time To Spark</button></Link>
     </Fragment>
   );
