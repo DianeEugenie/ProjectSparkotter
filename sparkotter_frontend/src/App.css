@@ -6,7 +6,7 @@
   height: 40vmin;
 }
 
-.App-header {
+#root {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -15,8 +15,59 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 5px;
+}
+.prompt{
+  color: yellow;
+}
+.timer{
+  color: lightseagreen;
+}
+
+button {
+  border-radius: 5px;
+  margin: 2px;
+}
+button:hover {
+  background-color: beige;
+  transform: translate(0.5px, 1px);
+
+}
+.timer-button{
+  padding: 0.5em 1.5em;
+}
+
+button.time-option-button{
+  background-color: #CD853F;
+  border: 4px solid #8B4513;
+  font-size: 2.5em;
+  margin: 0.2em;
+  border-radius: 20px;
+  min-width: 2em;
+}
+
+button.time-option-button:hover{
+  background-color: beige;
 }
 
 .App-link {
   color: #09d3ac;
+}
+.timer{
+  background-color:purple;
+}
+
+.prompt-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-wrap: nowrap;
+}
+
+.button-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
 }

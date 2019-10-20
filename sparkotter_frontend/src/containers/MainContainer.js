@@ -4,7 +4,9 @@
 
 import React, {Component, Fragment} from 'react';
 import PromptContainer from './prompts/PromptContainer';
-
+import ArchiveContainer from './archives/ArchiveContainer';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import AboutUs from '../components/aboutus/AboutUs';
 
 
 class MainContainer extends Component{
@@ -20,12 +22,15 @@ class MainContainer extends Component{
   render(){
 
     return (
+      <Router>
       <Fragment>
-      Time to Spark!
-      <PromptContainer />
-
-
+            <Switch>
+              <Route exact path="/" component={PromptContainer}/>
+              <Route exact path="/aboutus" component={AboutUs}/>
+              <Route exact path="/sparkive" component={ArchiveContainer}/>
+        </Switch>
       </Fragment>
+      </Router>
     );
   }
 }
