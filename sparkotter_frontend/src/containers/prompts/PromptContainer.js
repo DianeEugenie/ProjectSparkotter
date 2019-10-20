@@ -55,8 +55,3 @@ class PromptContainer extends Component {
 }
 
 export default PromptContainer;
-
-// <Route exact path="/spark/:seconds" render={(props) => {
-//   const seconds = props.match.params.seconds;
-//   return <PromptPage time={seconds} prompt={this.state.prompt} />
-// }}/>

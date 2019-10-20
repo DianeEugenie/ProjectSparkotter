@@ -3,44 +3,80 @@ import React, {Component, Fragment} from 'react';
 class Timer extends Component{
   constructor(props){
     super(props);
-    const seconds = props.time * 60;
     this.state = {
-      selectedTime: seconds
+      selectedTime: 0,
+      timerOn: false,
+      pausedTime: 0
     }
 
     this.countingDown = this.countingDown.bind(this);
-    this.intervalFunction = this.intervalFunction.bind(this);
+    this.clickTimer = this.clickTimer.bind(this);
+  }
+  //
+  // intervalFunction(){
+  //   const interval = setInterval(this.countingDown, 1000);
+  //   clearInterval(interval)
+  //   setInterval(this.countingDown, 1000);
+  //   this.setState({timerOn: true});
+  //   this.setState({selectedTime: this.state.pausedTime});
+  //
+  // }
+  componentDidMount(){
+    const seconds = this.props.time * 60;
+    this.setState({selectedTime: seconds,
+    pausedTime: seconds});
   }
 
-  intervalFunction(){
-    setInterval(this.countingDown, 1000);
+
+
+
+  clickTimer(){
+
+    if (!this.state.timerOn) {
+      let interval;
+      this.setState({timerOn: true});
+      if (this.state.pausedTime === this.state.selectedTime) {
+        interval = setInterval(this.countingDown, 1000);
+      } else {
+        this.setState({selectedTime: this.state.pausedTime});
+      }
+    } else {
+      this.setState({timerOn: false});
+      const pausedTime = this.state.selectedTime;
+      this.setState({pausedTime: pausedTime});
+    }
+
   }
 
 
   countingDown() {
     let counter = this.state.selectedTime;
 
-    if (counter > 1) {
+    if (counter >= 1) {
       counter -= 1;
       this.setState({selectedTime: counter});
-    } else {
+    } else if (counter === 0 && this.state.timerOn) {
       window.location = "/spark/timesup"
     }
-
 
   }
 
   render(){
-
     let timer = new Date(1000 * this.state.selectedTime).toISOString().substr(11,8);
+    let pausedTime = new Date(1000 * this.state.pausedTime).toISOString().substr(11,8);
 
     return (
       <Fragment>
       <div className='timer'>
-      <p className='timer-display'>{timer}</p>
 
-      <button onClick={this.intervalFunction}
-      className="timer-button">Time To Spark!</button>
+
+
+      {this.state.timerOn ?
+        (<div><p className='timer-display'>{timer}</p>
+          <button onClick={this.clickTimer}
+      className="timer-button">Pause Timer</button></div>) :
+      (<div><p className='timer-display'>{pausedTime}</p><button onClick={this.clickTimer}
+      className="timer-button">Inspire Time</button></div>)}
       </div>
       </Fragment>
     );
