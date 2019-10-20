@@ -4,7 +4,7 @@ package com.example.codeclan.sparkotter_backend.components;
 import com.example.codeclan.sparkotter_backend.Adjective;
 import com.example.codeclan.sparkotter_backend.Noun;
 import com.example.codeclan.sparkotter_backend.models.AdjectiveWord;
-import com.example.codeclan.sparkotter_backend.models.Instance;
+import com.example.codeclan.sparkotter_backend.models.CreativeInstance;
 import com.example.codeclan.sparkotter_backend.models.NounWord;
 import com.example.codeclan.sparkotter_backend.models.Prompt;
 import com.example.codeclan.sparkotter_backend.repositories.AdjectiveRepository.AdjectiveRepository;
@@ -52,10 +52,10 @@ public class DataLoader implements ApplicationRunner {
         Prompt prompt1 = new Prompt(adjectiveRepository.getOne(1L), nounRepository.getOne(1L));
         promptRepository.save(prompt1);
 
-        Instance instance1 = new Instance(prompt1, 10);
-        instanceRepository.save(instance1);
+        CreativeInstance creativeInstance1 = new CreativeInstance(prompt1, 10);
+        instanceRepository.save(creativeInstance1);
 
-        Instance instance2 = new Instance(prompt1, 20);
-        instanceRepository.save(instance2);
+        CreativeInstance creativeInstance2 = new CreativeInstance(prompt1, 20);
+        instanceRepository.save(creativeInstance2);
     }
 }

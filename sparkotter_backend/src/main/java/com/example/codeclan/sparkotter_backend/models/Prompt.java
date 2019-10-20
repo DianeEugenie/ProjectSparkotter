@@ -1,8 +1,6 @@
 package com.example.codeclan.sparkotter_backend.models;
 
 
-import com.example.codeclan.sparkotter_backend.Adjective;
-import com.example.codeclan.sparkotter_backend.Noun;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -10,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "prompt")
+@Table(name = "prompts")
 public class Prompt {
 
     @Id
@@ -29,13 +27,13 @@ public class Prompt {
 
     @JsonIgnoreProperties("prompt")
     @OneToMany(mappedBy = "prompt")
-    @Column (name = "instances")
-    private List<Instance> instances;
+    @Column (name = "creativeInstances")
+    private List<CreativeInstance> creativeInstances;
 
     public Prompt(AdjectiveWord prompt_adjective, NounWord prompt_noun) {
         this.prompt_adjective = prompt_adjective;
         this.prompt_noun = prompt_noun;
-        this.instances = new ArrayList<>();
+        this.creativeInstances = new ArrayList<>();
     }
 
     public Prompt() {
@@ -65,11 +63,11 @@ public class Prompt {
         this.prompt_noun = prompt_noun;
     }
 
-    public List<Instance> getInstances() {
-        return instances;
+    public List<CreativeInstance> getCreativeInstances() {
+        return creativeInstances;
     }
 
-    public void setInstances(List<Instance> instances) {
-        this.instances = instances;
+    public void setCreativeInstances(List<CreativeInstance> creativeInstances) {
+        this.creativeInstances = creativeInstances;
     }
 }

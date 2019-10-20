@@ -2,7 +2,7 @@ package com.example.codeclan.sparkotter_backend;
 
 
 import com.example.codeclan.sparkotter_backend.models.AdjectiveWord;
-import com.example.codeclan.sparkotter_backend.models.Instance;
+import com.example.codeclan.sparkotter_backend.models.CreativeInstance;
 import com.example.codeclan.sparkotter_backend.models.NounWord;
 import com.example.codeclan.sparkotter_backend.models.Prompt;
 import com.example.codeclan.sparkotter_backend.repositories.AdjectiveRepository.AdjectiveRepository;
@@ -13,9 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -85,19 +83,19 @@ class SparkotterBackendApplicationTests {
 		AdjectiveWord adjective = adjectiveRepository.getRandomAdjective();
 		NounWord noun = nounRepository.getRandomNoun();
 		Prompt prompt = new Prompt(adjective, noun);
-		Instance instance1 = new Instance(prompt, 10);
-		assertNotNull(instance1);
-		assertEquals(prompt, instance1.getPrompt());
+		CreativeInstance creativeInstance1 = new CreativeInstance(prompt, 10);
+		assertNotNull(creativeInstance1);
+		assertEquals(prompt, creativeInstance1.getPrompt());
 //		try {
 //			Thread.sleep(60000);
 //		} catch (InterruptedException e) {
 //			e.printStackTrace();
 //		}
-		Instance instance2 = new Instance(prompt, 20.20);
-		assertNotNull(instance2);
-		assertEquals(prompt, instance2.getPrompt());
+		CreativeInstance creativeInstance2 = new CreativeInstance(prompt, 20.20);
+		assertNotNull(creativeInstance2);
+		assertEquals(prompt, creativeInstance2.getPrompt());
 		//wait allows to check if time created is different - passes
-//		assertNotEquals(instance1.getDateCreated(), instance2.getDateCreated());
+//		assertNotEquals(creativeInstance1.getDateCreated(), creativeInstance2.getDateCreated());
 	}
 
 	@Test
@@ -108,7 +106,7 @@ class SparkotterBackendApplicationTests {
 
 	@Test
 	void canGetInstanceFromRepository() {
-		List<Instance> found = instanceRepository.findAll();
+		List<CreativeInstance> found = instanceRepository.findAll();
 		assertEquals(2, found.size());
 		assertEquals(found.get(0).getPrompt().getId(), 1L);
 		assertEquals(found.get(0).getPrompt_time(), 10);

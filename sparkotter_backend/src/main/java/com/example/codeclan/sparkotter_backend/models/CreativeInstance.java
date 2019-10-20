@@ -6,8 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="instances")
-public class Instance {
+@Table(name="creative_instances")
+public class CreativeInstance {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,14 +24,14 @@ public class Instance {
     @JoinColumn(name="prompt_id", nullable = false)
     private Prompt prompt;
 
-    public Instance(Prompt prompt, double prompt_time) {
+    public CreativeInstance(Prompt prompt, double prompt_time) {
         this.prompt = prompt;
         this.prompt_time = prompt_time;
         //will have uploaded image/text here too
         this.dateCreated = new Date();
     }
 
-    public Instance() {
+    public CreativeInstance() {
     }
 
     public Long getId() {
