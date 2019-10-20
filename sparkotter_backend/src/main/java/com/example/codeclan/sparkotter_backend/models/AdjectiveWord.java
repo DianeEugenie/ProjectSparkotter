@@ -2,8 +2,11 @@ package com.example.codeclan.sparkotter_backend.models;
 
 
 import com.example.codeclan.sparkotter_backend.Adjective;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="adjectives")
@@ -19,9 +22,15 @@ public class AdjectiveWord {
     @Column(name="adjectiveCap")
     private String adjectiveCap;
 
+    @JsonIgnoreProperties("prompt_adjective")
+    @OneToMany(mappedBy = "prompt_adjective")
+    @Column(name = "prompts")
+    private List<Prompt> prompts;
+
     public AdjectiveWord(Adjective adjective) {
         this.adjective = adjective;
         this.adjectiveCap = adjective.getName();
+        this.prompts = new ArrayList<>();
     }
 
     public AdjectiveWord() {
