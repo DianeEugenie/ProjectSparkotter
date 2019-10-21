@@ -8,6 +8,7 @@ import TimesUpPage from '../../components/time_elements/TimesUpPage';
 import PromptPage from '../../components/prompts/PromptPage';
 import StartPage from '../../components/prompts/StartPage';
 import OptionsForm from '../../components/time_elements/OptionsForm';
+import CustomPromptForm from '../../components/prompts/CustomPromptForm';
 import Request from '../../helpers/Request';
 
 class PromptContainer extends Component {
@@ -19,6 +20,7 @@ class PromptContainer extends Component {
     }
 
     this.handleOptions = this.handleOptions.bind(this);
+    this.onCustomSubmit = this.onCustomSubmit.bind(this);
   }
 
 
@@ -51,6 +53,10 @@ class PromptContainer extends Component {
     // this.fetchPrompt();
   }
 
+  onCustomSubmit(){
+    
+  }
+
   //FETCH sequence
   // Get fetch adjective
   // getRandomAdjectiveIndex() number = 1-87
@@ -69,7 +75,7 @@ class PromptContainer extends Component {
   //.Then POST new INSTANCE - old prompt with NEW time
   //.Then display prompt and timer page.
 
-
+  //add function to custom prompt receiving redirect to options page
 
   render(){
     return (
@@ -93,7 +99,14 @@ class PromptContainer extends Component {
             <Route exact path="/options" render={(props) => {
               return <OptionsForm onSubmit={this.handleOptions}/>
             }}/>
+
+            <Route exact path="/custom" render={(props) => {
+              return <CustomPromptForm onCustomSubmit={this.onCustomSubmit} />
+            }}/>
+
+
           </Switch>
+
         </Fragment>
       </Router>
     )
