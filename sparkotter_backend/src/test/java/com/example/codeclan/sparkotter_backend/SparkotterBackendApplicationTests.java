@@ -110,4 +110,11 @@ class SparkotterBackendApplicationTests {
 		assertEquals(found.get(1).getPrompt_time(), 20);
 
 	}
+
+	@Test
+	void canGetLastPrompt() {
+		Prompt found = promptRepository.findLast();
+		System.out.println(found);
+		assertNotNull(found);
+	}
 }

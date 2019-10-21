@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/creative_instances")
+@RequestMapping("/api/creativeInstances")
 public class InstanceController {
 
     @Autowired
