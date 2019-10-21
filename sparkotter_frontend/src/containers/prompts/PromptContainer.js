@@ -79,8 +79,8 @@ class PromptContainer extends Component {
     // }
     const request = new Request();
 
-    const prompt = request.get('/api/prompts')
-    .then(res => res._embedded.prompts)
+    const prompt = request.get('/api/prompts/prompt/last')
+  
   //  .then(link => this.setState({promptObject: link._links.self.href}))
   console.log(prompt);
 
