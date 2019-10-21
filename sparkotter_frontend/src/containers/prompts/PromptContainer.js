@@ -40,8 +40,8 @@ class PromptContainer extends Component {
     .then(data => {
       this.setState({prompt: data[0].adjectiveCap + " " + data[1].nounCap})
     })
+    .then(() => this.sendPrompt())
 
-    this.sendPrompt();
   }
 
 
@@ -52,33 +52,25 @@ class PromptContainer extends Component {
       this.setState({time: minutes});
     }
 
-    const fetch = this.fetchPrompt();
-    console.log(fetch);
-
-
+    this.fetchPrompt();
   }
 
 
   sendPrompt(){
-
     const request = new Request();
     const promptBody = {
-      prompt: this.state.prompt
+      "prompt": this.state.prompt
     }
-    return promptBody
 
-  //  request.post('/api/prompts', promptBody);
-    // Takes in string as {prompt:}
-
-
+    request.post('/api/prompts', promptBody);
   }
 
-  sendInstance(){
-    //Takes in dateCreated
-    //prompt:
-    //promptTime:
-    //image?
-  }
+  // sendInstance(){
+  //   //Takes in dateCreated
+  //   //prompt:
+  //   //promptTime:
+  //   //image?
+  // }
 
   // Get fetch noun
   // .Then Post adjective/noun PROMPT
