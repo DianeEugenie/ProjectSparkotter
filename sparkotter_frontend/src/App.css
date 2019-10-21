@@ -112,3 +112,13 @@ a {
   color: white;
   margin: 0 1em;
 }
+
+.logo {
+  height: 30vmin;
+  object-fit:contain;
+}
+.times-up-logo {
+  height: 27vh;
+  object-fit:contain;
+
+}
