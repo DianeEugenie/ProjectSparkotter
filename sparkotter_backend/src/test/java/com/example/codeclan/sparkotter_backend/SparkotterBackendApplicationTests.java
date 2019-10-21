@@ -72,17 +72,13 @@ class SparkotterBackendApplicationTests {
 
 	@Test
 	void canCreatePrompt() {
-		AdjectiveWord adjective = adjectiveRepository.getRandomAdjective();
-		NounWord noun = nounRepository.getRandomNoun();
-		Prompt prompt = new Prompt(adjective, noun);
+		Prompt prompt = new Prompt("Happy Otter");
 		assertNotNull(prompt);
 	}
 
 	@Test
 	void canCreateInstance__andAnotherOfSamePrompt() {
-		AdjectiveWord adjective = adjectiveRepository.getRandomAdjective();
-		NounWord noun = nounRepository.getRandomNoun();
-		Prompt prompt = new Prompt(adjective, noun);
+		Prompt prompt = new Prompt("Happy Otter");
 		CreativeInstance creativeInstance1 = new CreativeInstance(prompt, 10);
 		assertNotNull(creativeInstance1);
 		assertEquals(prompt, creativeInstance1.getPrompt());

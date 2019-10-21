@@ -15,24 +15,16 @@ public class Prompt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnoreProperties("prompts")
-    @ManyToOne
-    @JoinColumn(name="adjective_id", nullable = false)
-    private AdjectiveWord prompt_adjective;
-
-    @JsonIgnoreProperties("prompts")
-    @ManyToOne
-    @JoinColumn(name="noun_id", nullable = false)
-    private NounWord prompt_noun;
+    @Column (name = "prompt")
+    private String prompt;
 
     @JsonIgnoreProperties("prompt")
     @OneToMany(mappedBy = "prompt")
     @Column (name = "creativeInstances")
     private List<CreativeInstance> creativeInstances;
 
-    public Prompt(AdjectiveWord prompt_adjective, NounWord prompt_noun) {
-        this.prompt_adjective = prompt_adjective;
-        this.prompt_noun = prompt_noun;
+    public Prompt(String prompt) {
+        this.prompt = prompt;
         this.creativeInstances = new ArrayList<>();
     }
 
@@ -47,20 +39,12 @@ public class Prompt {
         this.id = id;
     }
 
-    public AdjectiveWord getPrompt_adjective() {
-        return prompt_adjective;
+    public String getPrompt() {
+        return prompt;
     }
 
-    public void setPrompt_adjective(AdjectiveWord prompt_adjective) {
-        this.prompt_adjective = prompt_adjective;
-    }
-
-    public NounWord getPrompt_noun() {
-        return prompt_noun;
-    }
-
-    public void setPrompt_noun(NounWord prompt_noun) {
-        this.prompt_noun = prompt_noun;
+    public void setPrompt(String prompt) {
+        this.prompt = prompt;
     }
 
     public List<CreativeInstance> getCreativeInstances() {
