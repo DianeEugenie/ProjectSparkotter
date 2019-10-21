@@ -42,6 +42,13 @@ class OptionsForm extends Component {
     <p>Select your creative minutes:</p>
 
     <div className='button-options'>
+    <Link to="/spark">
+    <button type='button'
+    value='null'
+    className="time-option-button"
+    onClick={this.handleOptions}>
+    No Limit!</button>
+    </Link>
       <Link to="/spark">
       <button type='button'
       value='5'
@@ -83,6 +90,7 @@ class OptionsForm extends Component {
       onClick={this.handleOptions}>
       60</button>
       </Link>
+
 
   </div>
 

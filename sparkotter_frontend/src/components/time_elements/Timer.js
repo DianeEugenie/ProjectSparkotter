@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import {Link} from 'react-router-dom';
 
 class Timer extends Component{
   constructor(props){
@@ -54,6 +55,11 @@ class Timer extends Component{
   }
 
   render(){
+
+    if (!this.state.selectedTime) {
+      return null;
+    }
+
     let timer = new Date(1000 * this.state.selectedTime).toISOString().substr(11,8);
     let pausedTime = new Date(1000 * this.state.pausedTime).toISOString().substr(11,8);
 
@@ -61,16 +67,17 @@ class Timer extends Component{
       <Fragment>
       <div className='timer'>
 
-
-
       {this.state.timerOn ?
         (<div><p className='timer-display'>{timer}</p>
           <button onClick={this.clickTimer}
       className="timer-button">Pause Timer</button></div>) :
       (<div><p className='timer-display'>{pausedTime}</p><button onClick={this.clickTimer}
       className="timer-button">Inspire Time</button></div>)}
+
+
       </div>
       </Fragment>
+
     );
   }
 }

@@ -1,5 +1,6 @@
 // prop: randomPrompt
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const DisplayPrompt = (props) => {
 
@@ -8,7 +9,13 @@ const DisplayPrompt = (props) => {
   }
 
   return(
+    <div>
     <p className="prompt">{props.prompt}</p>
+
+    {!props.time ?
+      <Link to="/spark/timesup"><button className="timer-button">I'm Done!</button></Link> : ''
+    }
+    </div>
   );
 }
 

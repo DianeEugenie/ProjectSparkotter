@@ -10,9 +10,8 @@ const PromptPage = (props) => {
     <Fragment>
     <div className="prompt-page">
     <Timer time={props.time}/>
-    <DisplayPrompt prompt={props.prompt}/>
-    <p>This is the Prompt Page</p>
-    <p>Which has both the props time and prompt</p>
+    <DisplayPrompt prompt={props.prompt} time={props.time}/>
+
 
     </div>
 
