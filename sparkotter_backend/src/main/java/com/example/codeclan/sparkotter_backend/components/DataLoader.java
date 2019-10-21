@@ -49,7 +49,7 @@ public class DataLoader implements ApplicationRunner {
 
         //tests
 
-        Prompt prompt1 = new Prompt("Happy Otter");
+        Prompt prompt1 = new Prompt("Happy Otter", false);
         promptRepository.save(prompt1);
 
         CreativeInstance creativeInstance1 = new CreativeInstance(prompt1, 10);
