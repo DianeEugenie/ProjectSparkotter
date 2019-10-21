@@ -14,7 +14,7 @@ class PromptContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      prompt: "Fetching the prompt...",
+      prompt: "",
       time: null
     }
 
@@ -40,11 +40,10 @@ class PromptContainer extends Component {
     .then(data => {
       this.setState({prompt: data[0].adjectiveCap + " " + data[1].nounCap})
     })
+
+    this.sendPrompt();
   }
 
-  // componentDidMount(){
-  //   this.fetchPrompt();
-  // }
 
   handleOptions(minutes){
     if (minutes === 'null') {
@@ -53,14 +52,33 @@ class PromptContainer extends Component {
       this.setState({time: minutes});
     }
 
-    this.fetchPrompt();
+    const fetch = this.fetchPrompt();
+    console.log(fetch);
+
+
   }
 
-  //FETCH sequence
-  // Get fetch adjective
-  // getRandomAdjectiveIndex() number = 1-87
-  // getRandomNounIndex() number = 1-300
-  // /api/adjectiveWord/number
+
+  sendPrompt(){
+
+    const request = new Request();
+    const promptBody = {
+      prompt: this.state.prompt
+    }
+    return promptBody
+
+  //  request.post('/api/prompts', promptBody);
+    // Takes in string as {prompt:}
+
+
+  }
+
+  sendInstance(){
+    //Takes in dateCreated
+    //prompt:
+    //promptTime:
+    //image?
+  }
 
   // Get fetch noun
   // .Then Post adjective/noun PROMPT

@@ -13,7 +13,7 @@ const TimesUpPage = (props) => {
     <p>This is the Times Up of the Prompt Container</p>
     <p>Which lets you know the time is up!</p>
     <Link to={optionsUrl}><button>New Spark</button></Link>
-    <Link to={sparkiveUrl}><button>Go To Your Sparkive</button></Link>
+    <a href={sparkiveUrl}><button>Go To Your Sparkive</button></a>
     </Fragment>
   );
 }
