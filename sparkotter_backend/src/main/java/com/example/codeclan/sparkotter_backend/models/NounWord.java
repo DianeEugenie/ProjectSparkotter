@@ -1,11 +1,8 @@
 package com.example.codeclan.sparkotter_backend.models;
 
 import com.example.codeclan.sparkotter_backend.Noun;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name="nouns")
@@ -21,15 +18,9 @@ public class NounWord {
     @Column(name="nounCap")
     private String nounCap;
 
-    @JsonIgnoreProperties("prompt_noun")
-    @OneToMany(mappedBy = "prompt_noun")
-    @Column(name = "prompts")
-    private List<Prompt> prompts;
-
     public NounWord(Noun noun) {
         this.noun = noun;
         this.nounCap = noun.getName();
-        this.prompts = new ArrayList<>();
     }
 
     public NounWord() {
@@ -59,11 +50,4 @@ public class NounWord {
         this.nounCap = nounCap;
     }
 
-    public List<Prompt> getPrompts() {
-        return prompts;
-    }
-
-    public void setPrompts(List<Prompt> prompts) {
-        this.prompts = prompts;
-    }
 }
