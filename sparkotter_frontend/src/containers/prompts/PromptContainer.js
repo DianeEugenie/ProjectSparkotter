@@ -15,7 +15,9 @@ class PromptContainer extends Component {
     super(props);
     this.state = {
       prompt: "",
-      time: null
+      time: null,
+      custom: false,
+      promptObject: null
     }
 
     this.handleOptions = this.handleOptions.bind(this);
@@ -41,6 +43,7 @@ class PromptContainer extends Component {
       this.setState({prompt: data[0].adjectiveCap + " " + data[1].nounCap})
     })
     .then(() => this.sendPrompt())
+    .then(() => this.sendInstance())
 
   }
 
@@ -52,31 +55,42 @@ class PromptContainer extends Component {
       this.setState({time: minutes});
     }
 
+    if(!this.state.custom) {
     this.fetchPrompt();
+    }
   }
 
 
   sendPrompt(){
     const request = new Request();
     const promptBody = {
-      "prompt": this.state.prompt
+      prompt: this.state.prompt
     }
 
-    request.post('/api/prompts', promptBody);
+    request.post('/api/prompts', promptBody)
   }
 
-  // sendInstance(){
-  //   //Takes in dateCreated
-  //   //prompt:
-  //   //promptTime:
-  //   //image?
-  // }
+  sendInstance(){
 
-  // Get fetch noun
-  // .Then Post adjective/noun PROMPT
-  // .Then {prompt: adj, noun}
-  // .Then Post new INSTANCE (send prompt and time)
-  // .Then display PROMPT and timer page.
+    // const instanceBody = {
+    //   prompt: ,
+    //   prompt_time: this.state.time,
+    //   dateCreated: Date.now()
+    // }
+    const request = new Request();
+
+    const prompt = request.get('/api/prompts')
+    .then(res => res._embedded.prompts)
+  //  .then(link => this.setState({promptObject: link._links.self.href}))
+  console.log(prompt);
+
+
+
+  //  request.post('/api/creativeInstances', instanceBody)
+
+  }
+
+
 
   //handleRespark(){}
   //Get fetches old INSTANCE
