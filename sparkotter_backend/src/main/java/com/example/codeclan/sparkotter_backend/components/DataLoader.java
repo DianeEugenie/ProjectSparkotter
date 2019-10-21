@@ -51,6 +51,10 @@ public class DataLoader implements ApplicationRunner {
 
         Prompt prompt1 = new Prompt("Happy Otter", false);
         promptRepository.save(prompt1);
+        Prompt prompt2 = new Prompt("Happy Salami", false);
+        promptRepository.save(prompt2);
+        Prompt prompt3 = new Prompt("Green Otter", true);
+        promptRepository.save(prompt3);
 
         CreativeInstance creativeInstance1 = new CreativeInstance(prompt1, 10);
         instanceRepository.save(creativeInstance1);

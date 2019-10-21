@@ -97,7 +97,7 @@ class SparkotterBackendApplicationTests {
 	@Test
 	void canGetPromptFromRepository() {
 		List<Prompt> found = promptRepository.findAll();
-		assertEquals(1, found.size());
+		assertEquals(3, found.size());
 	}
 
 	@Test
@@ -114,7 +114,6 @@ class SparkotterBackendApplicationTests {
 	@Test
 	void canGetLastPrompt() {
 		Prompt found = promptRepository.findLast();
-		System.out.println(found);
 		assertNotNull(found);
 	}
 }
