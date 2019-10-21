@@ -72,13 +72,13 @@ class SparkotterBackendApplicationTests {
 
 	@Test
 	void canCreatePrompt() {
-		Prompt prompt = new Prompt("Happy Otter");
+		Prompt prompt = new Prompt("Happy Otter", false);
 		assertNotNull(prompt);
 	}
 
 	@Test
 	void canCreateInstance__andAnotherOfSamePrompt() {
-		Prompt prompt = new Prompt("Happy Otter");
+		Prompt prompt = new Prompt("Happy Otter", false);
 		CreativeInstance creativeInstance1 = new CreativeInstance(prompt, 10);
 		assertNotNull(creativeInstance1);
 		assertEquals(prompt, creativeInstance1.getPrompt());
