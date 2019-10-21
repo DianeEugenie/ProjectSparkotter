@@ -8,24 +8,55 @@ import TimesUpPage from '../../components/time_elements/TimesUpPage';
 import PromptPage from '../../components/prompts/PromptPage';
 import StartPage from '../../components/prompts/StartPage';
 import OptionsForm from '../../components/time_elements/OptionsForm';
+import Request from '../../helpers/Request';
 
 class PromptContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      prompt: "Dropped Angel",
+      prompt: "Fetching the prompt...",
       time: null
     }
 
     this.handleOptions = this.handleOptions.bind(this);
   }
 
+
+
+  fetchPrompt(){
+    const request = new Request();
+
+    const min = 1;
+    const adjMax = 87;
+    const nounMax = 300;
+    const randAdjIndex = Math.floor((min + Math.random() * (adjMax - min)));
+    const randNounIndex = Math.floor((min + Math.random() * (nounMax - min)));
+
+
+    const adjPromise = request.get("/api/adjectiveWords/" + randAdjIndex);
+    const nounPromise = request.get("/api/nounWords/" + randNounIndex);
+
+    Promise.all([adjPromise, nounPromise])
+    .then(data => {
+      this.setState({prompt: data[0].adjectiveCap + " " + data[1].nounCap})
+    })
+  }
+
+  componentDidMount(){
+    this.fetchPrompt();
+  }
+
   handleOptions(minutes){
     this.setState({time: minutes})
+    // this.fetchPrompt();
   }
 
   //FETCH sequence
   // Get fetch adjective
+  // getRandomAdjectiveIndex() number = 1-87
+  // getRandomNounIndex() number = 1-300
+  // /api/adjectiveWord/number
+
   // Get fetch noun
   // .Then Post adjective/noun PROMPT
   // .Then {prompt: adj, noun}
