@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/nouns")
+@RequestMapping("/api/nounWords")
 public class NounController {
 
     @Autowired
     NounRepository nounRepository;
 
-    @GetMapping(value = "/random")
+    @GetMapping(value = "/word/random")
     public NounWord getRandomNoun(){
         return nounRepository.getRandomNoun();
     }
