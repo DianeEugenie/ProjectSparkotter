@@ -17,10 +17,12 @@ class PromptContainer extends Component {
       prompt: "",
       time: null,
       custom: false,
-      promptObject: null
+      promptInstance: null
     }
 
     this.handleOptions = this.handleOptions.bind(this);
+    this.sendPrompt = this.sendPrompt.bind(this);
+    this.sendInstance = this.sendInstance.bind(this);
   }
 
 
@@ -43,7 +45,6 @@ class PromptContainer extends Component {
       this.setState({prompt: data[0].adjectiveCap + " " + data[1].nounCap})
     })
     .then(() => this.sendPrompt())
-    .then(() => this.sendInstance())
 
   }
 
@@ -58,6 +59,7 @@ class PromptContainer extends Component {
     if(!this.state.custom) {
     this.fetchPrompt();
     }
+
   }
 
 
@@ -68,25 +70,26 @@ class PromptContainer extends Component {
     }
 
     request.post('/api/prompts', promptBody)
+    .then(() => this.sendInstance())
   }
 
   sendInstance(){
+    let instanceBody;
 
-    // const instanceBody = {
-    //   prompt: ,
-    //   prompt_time: this.state.time,
-    //   dateCreated: Date.now()
-    // }
     const request = new Request();
 
-    const prompt = request.get('/api/prompts/prompt/last')
-  
-  //  .then(link => this.setState({promptObject: link._links.self.href}))
-  console.log(prompt);
+    request.get('/api/prompts/prompt/last')
+    .then(data => this.setState({promptInstance: data}))
+    .then(() => instanceBody = {prompt: "http://localhost:8080/api/prompts/" + this.state.promptInstance.id,
+    prompt_time: this.state.time,
+    dateCreated: Date.now()
+    })
+    .then(() => {
+      console.log(instanceBody);
+      const request = new Request();
+      request.post('/api/creativeInstances', instanceBody)
+    })
 
-
-
-  //  request.post('/api/creativeInstances', instanceBody)
 
   }
 
