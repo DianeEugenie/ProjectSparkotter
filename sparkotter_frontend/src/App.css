@@ -11,50 +11,85 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
+  text-align: center;
+  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 5px;
 }
 .prompt{
   color: yellow;
 }
-.timer{
-  color: lightseagreen;
-}
 
-button {
-  border-radius: 5px;
-  margin: 2px;
-}
-button:hover {
-  background-color: beige;
-  transform: translate(0.5px, 1px);
-
-}
-.timer-button{
-  padding: 0.5em 1.5em;
-}
 
 button.time-option-button{
-  background-color: #CD853F;
-  border: 4px solid #8B4513;
+  background-image: linear-gradient(to bottom right, #D868DE, #766CEC);
+  box-shadow: 2px 0 5px 0 #766CEC;
   font-size: 2.5em;
-  margin: 0.2em;
+  margin-top: 0.4em;
   border-radius: 20px;
   min-width: 2em;
 }
 
-button.time-option-button:hover{
-  background-color: beige;
+button.time-option-button:hover, button.time-option-button:focus{
+  background-image: linear-gradient(to bottom right, #766CEC, #D868DE);
+  transform: translate(0.5px, 1px);
+}
+
+button.time-select-button {
+background-image: linear-gradient(to left, #4877E7, #66E8AF);
+box-shadow: 2px 0 5px 0 #4877E7;
+font-size: 2em;
+margin: 0.1em;
+border-radius: 20px;
+min-width: 2em;
+margin-top: 0.5em;
+}
+
+button.time-select-button:hover{
+background-image: linear-gradient(to right, #4877E7, #66E8AF);
+transform: translate(0.5px, 1px);
+}
+
+button.timer-button, button.start-button{
+background-image: linear-gradient(to right, #4877E7, #66E8AF);
+padding: 0.5em 1.5em;
+border-radius: 20px;
+font-size: 0.7em;
+}
+
+button.timer-button:hover, button.start-button:hover{
+background-image: linear-gradient(to left, #4877E7, #66E8AF);
+}
+
+input.time-select {
+  background-image: linear-gradient(to left, #4877E7, #66E8AF);
+  box-shadow: 2px 0 5px 0 #4877E7;
+  border-radius: 20px;
+  color: black;
+  font-size: 1.5em;
+  margin-top: 0.8em;
+  text-align: center;
+}
+
+.time-select::placeholder {
+  color: #8B4513;
 }
 
 .App-link {
   color: #09d3ac;
 }
 .timer{
-  background-color:purple;
+  background-color:beige;
+  padding: 0.2em;
+  margin: 1em;
+  font-size: 1.5em;
+  color: black;
+  border-radius: 20px;
+}
+.timer-display{
+  border: 1px solid black;
+  border-radius: 20px;
 }
 
 .prompt-page {
@@ -69,5 +104,11 @@ button.time-option-button:hover{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+
   /* align-items: center; */
+}
+a {
+  color: white;
+  margin: 0 1em;
 }

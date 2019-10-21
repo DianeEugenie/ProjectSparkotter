@@ -27,7 +27,9 @@ class OptionsForm extends Component {
   }
 
   handleSubmit(){
+    if (this.state.selectedTime !== '') {
     this.props.onSubmit(this.state.selectedTime);
+  }
   }
 
 
@@ -37,7 +39,7 @@ class OptionsForm extends Component {
   return (
     <Fragment>
     <p>OTTER IMAGE WILL BE HERE</p>
-    <p>Select your creative minutes!</p>
+    <p>Select your creative minutes:</p>
 
     <div className='button-options'>
       <Link to="/spark">
@@ -46,25 +48,35 @@ class OptionsForm extends Component {
       className="time-option-button"
       onClick={this.handleOptions}>
       5
-      </button>
+      </button></Link>
+
+      <Link to="/spark">
       <button type='button'
       value='10'
       className="time-option-button"
       onClick={this.handleOptions}>
       10
       </button>
+      </Link>
+
+      <Link to="/spark">
       <button type='button'
       value='20'
       className="time-option-button"
       onClick={this.handleOptions}>
       20
       </button>
+      </Link>
+
+      <Link to="/spark">
       <button type='button'
       value='30'
       className="time-option-button"
       onClick={this.handleOptions}>
       30
       </button>
+      </Link>
+      <Link to="/spark">
       <button type='button'
       value='60'
       className="time-option-button"
@@ -78,13 +90,16 @@ class OptionsForm extends Component {
         name="time"
         min='0'
         className="time-select"
-        placeholder='Minutes..'
+        placeholder='Or enter your own!'
         onChange={this.handleCreatedOption} value={this.state.selectedTime} />
 
-        <Link to="/spark">
-        <button type="submit"
+        {this.state.selectedTime === '' ? ('') :
+
+          (<Link to="/spark">
+        <button type='submit'
+        className='time-select-button'
         onClick={this.handleSubmit}>Inspire Me!</button>
-        </Link>
+        </Link>)}
 
 
 

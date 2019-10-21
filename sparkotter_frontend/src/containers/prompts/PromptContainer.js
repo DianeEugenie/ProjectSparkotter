@@ -22,14 +22,30 @@ class PromptContainer extends Component {
 
   handleOptions(minutes){
     this.setState({time: minutes})
-    // window.location = "/spark"
   }
+
+  //FETCH sequence
+  // Get fetch adjective
+  // Get fetch noun
+  // .Then Post adjective/noun PROMPT
+  // .Then {prompt: adj, noun}
+  // .Then Post new INSTANCE (send prompt and time)
+  // .Then display PROMPT and timer page.
+
+  //handleRespark(){}
+  //Get fetches old INSTANCE
+  //.Then {prompt: prompt.adjective + prompt.noun , time: instance.time} - prepopulating time select
+  //.Then POST new INSTANCE - old prompt with NEW time
+  //.Then display prompt and timer page.
+
+
 
   render(){
     return (
       <Router>
         <Fragment>
           <Switch>
+
             <Route exact path="/" render={(props) => {
               return <StartPage />
             }} />
@@ -54,8 +70,3 @@ class PromptContainer extends Component {
 }
 
 export default PromptContainer;
-
-// <Route exact path="/spark/:seconds" render={(props) => {
-//   const seconds = props.match.params.seconds;
-//   return <PromptPage time={seconds} prompt={this.state.prompt} />
-// }}/>
