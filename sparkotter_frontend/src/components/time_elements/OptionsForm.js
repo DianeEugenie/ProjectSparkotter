@@ -38,7 +38,6 @@ class OptionsForm extends Component {
 
   return (
     <Fragment>
-    <p>OTTER IMAGE WILL BE HERE</p>
     <p>Select your creative minutes:</p>
 
     <div className='button-options'>

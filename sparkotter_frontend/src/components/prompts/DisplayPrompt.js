@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const DisplayPrompt = (props) => {
 
-  if (!prompt) {
+  if (!props.prompt) {
     return "Sparky is fetching your prompt.."
   }
 

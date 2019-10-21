@@ -44,13 +44,18 @@ class PromptContainer extends Component {
     })
   }
 
-  componentDidMount(){
-    this.fetchPrompt();
-  }
+  // componentDidMount(){
+  //   this.fetchPrompt();
+  // }
 
   handleOptions(minutes){
-    this.setState({time: minutes})
-    // this.fetchPrompt();
+    if (minutes === 'null') {
+      this.setState({time: null});
+    } else {
+      this.setState({time: minutes});
+    }
+
+    this.fetchPrompt();
   }
 
   onCustomSubmit(){
