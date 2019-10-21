@@ -16,7 +16,8 @@ class PromptContainer extends Component {
     super(props);
     this.state = {
       prompt: "Fetching the prompt...",
-      time: null
+      time: null,
+      custom: false
     }
 
     this.handleOptions = this.handleOptions.bind(this);
@@ -53,13 +54,13 @@ class PromptContainer extends Component {
       this.setState({time: null});
     } else {
       this.setState({time: minutes});
-    }
+    } 
 
     this.fetchPrompt();
   }
 
-  onCustomSubmit(){
-    
+  onCustomSubmit(customPrompt){
+    this.setState({prompt: customPrompt, custom: true});
   }
 
   //FETCH sequence

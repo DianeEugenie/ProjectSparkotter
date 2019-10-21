@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Request from '../../helpers/Request';
+import {Link} from 'react-router-dom'; 
 
 class CustomPromptForm extends Component{
   constructor(props){
@@ -32,7 +33,7 @@ class CustomPromptForm extends Component{
       <div>
       <form onSubmit={this.handleCustomSubmit}>
       <input type="text" placeholder="Custom Prompt" name="customPrompt" onChange={this.handleTextInput} value={this.state.customPrompt} />
-      <button type="submit">Submit Your Prompt!</button>
+    <Link to='/options'><button type="submit">Submit Your Prompt!</button></Link>
       </form>
       </div>
     )
