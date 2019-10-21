@@ -18,13 +18,17 @@ public class Prompt {
     @Column (name = "prompt")
     private String prompt;
 
+    @Column (name = "customPrompt")
+    private boolean customPrompt;
+
     @JsonIgnoreProperties("prompt")
     @OneToMany(mappedBy = "prompt")
     @Column (name = "creativeInstances")
     private List<CreativeInstance> creativeInstances;
 
-    public Prompt(String prompt) {
+    public Prompt(String prompt, boolean customPrompt) {
         this.prompt = prompt;
+        this.customPrompt = customPrompt;
         this.creativeInstances = new ArrayList<>();
     }
 
@@ -45,6 +49,14 @@ public class Prompt {
 
     public void setPrompt(String prompt) {
         this.prompt = prompt;
+    }
+
+    public boolean isCustomPrompt() {
+        return customPrompt;
+    }
+
+    public void setCustomPrompt(boolean customPrompt) {
+        this.customPrompt = customPrompt;
     }
 
     public List<CreativeInstance> getCreativeInstances() {
