@@ -128,4 +128,10 @@ class SparkotterBackendApplicationTests {
 		boolean answerFalse = promptRepository.existsByPrompt("Sad Otter");
 		assertFalse(answerFalse);
 	}
+
+	@Test
+	void canGetAllPromptsByDescendingOrder() {
+		List<Prompt> found = promptRepository.findAllByOrderByIdDesc();
+		assertEquals("Green Otter", found.get(0).getPrompt());
+	}
 }
