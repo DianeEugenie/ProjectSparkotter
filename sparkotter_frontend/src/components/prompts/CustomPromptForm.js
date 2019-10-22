@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Request from '../../helpers/Request';
 import {Link} from 'react-router-dom';
 
 class CustomPromptForm extends Component{
