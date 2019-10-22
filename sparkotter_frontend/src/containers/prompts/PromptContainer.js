@@ -4,7 +4,6 @@
 //Router / TimesUpPage - PromptPage StartPage
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import TimesUpPage from '../../components/time_elements/TimesUpPage';
 import PromptPage from '../../components/prompts/PromptPage';
 import StartPage from '../../components/prompts/StartPage';
 import OptionsForm from '../../components/time_elements/OptionsForm';
@@ -35,15 +34,8 @@ class PromptContainer extends Component {
   fetchPrompt(){
     const request = new Request();
 
-    const min = 1;
-    const adjMax = 87;
-    const nounMax = 300;
-    const randAdjIndex = Math.floor((min + Math.random() * (adjMax - min)));
-    const randNounIndex = Math.floor((min + Math.random() * (nounMax - min)));
-
-
-    const adjPromise = request.get("/api/adjectiveWords/" + randAdjIndex);
-    const nounPromise = request.get("/api/nounWords/" + randNounIndex);
+    const adjPromise = request.get("/api/adjectiveWords/word/random");
+    const nounPromise = request.get("/api/nounWords/word/random");
 
     Promise.all([adjPromise, nounPromise])
     .then(data => {
@@ -89,6 +81,9 @@ onCustomSubmit(customPrompt){
 
     const request = new Request();
 
+    // let date = new Date("10-19-2019");
+    // //,dateCreated: date
+
     request.get('/api/prompts/prompt/last')
     .then(data => this.setState({promptInstance: data}))
     .then(() => instanceBody = {prompt: "http://localhost:8080/api/prompts/" + this.state.promptInstance.id,
@@ -102,6 +97,8 @@ onCustomSubmit(customPrompt){
 
 
   }
+
+  
 
   changeTimesUp(value){
     this.setState({timesUp: value});

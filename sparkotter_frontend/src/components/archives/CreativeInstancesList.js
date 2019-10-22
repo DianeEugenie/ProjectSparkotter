@@ -1,5 +1,4 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {Fragment} from 'react';
 import CreativeInstance from './CreativeInstance';
 
 
@@ -13,16 +12,34 @@ const CreativeInstancesList = (props) => {
     return (
       <li key={index} className="component-item">
       <div className="component">
-      <CreativeInstance creativeInstance={instance} />
+      <CreativeInstance creativeInstance={instance} getResparkPrompt={props.getResparkPrompt}/>
       </div>
       </li>
     )
   })
 
+
+  let selectedInstances = [];
+
+  if (props.selectedItems.length > 0) {
+
+  selectedInstances =  props.selectedItems.map((instance, index) => {
+    return (<li key={index} className="component-item">
+    <div className="component">
+    <CreativeInstance creativeInstance={instance} />
+    </div>
+    </li>)
+  }) }
+
+
+
   return (
+    <Fragment>
     <ul className="component-list">
-    {creativeInstances}
+
+    {props.isSelected ? (selectedInstances) : (creativeInstances)}
     </ul>
+    </Fragment>
   )
 }
 export default CreativeInstancesList;
