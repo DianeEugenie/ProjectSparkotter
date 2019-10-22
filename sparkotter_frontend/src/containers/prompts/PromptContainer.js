@@ -89,6 +89,9 @@ onCustomSubmit(customPrompt){
 
     const request = new Request();
 
+    // let date = new Date("10-19-2019");
+    // //,dateCreated: date
+
     request.get('/api/prompts/prompt/last')
     .then(data => this.setState({promptInstance: data}))
     .then(() => instanceBody = {prompt: "http://localhost:8080/api/prompts/" + this.state.promptInstance.id,

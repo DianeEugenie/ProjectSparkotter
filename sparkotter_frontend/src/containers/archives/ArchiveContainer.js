@@ -15,8 +15,12 @@ class ArchiveContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      archiveItems: []
+      archiveItems: [],
+      selectedItems: [],
+      selected: false
     }
+
+    this.handleDate = this.handleDate.bind(this);
   }
 
 
@@ -24,7 +28,6 @@ class ArchiveContainer extends Component{
     const request = new Request();
     request.get('/api/creativeInstances')
     .then((data) => {
-      console.log(data);
       this.setState({archiveItems: data._embedded.creativeInstances})
     })
   }
@@ -35,12 +38,26 @@ class ArchiveContainer extends Component{
   //   });
   // }
 
+  handleDate(date, selected){
+//go through archiveItems
+  const selectedItems = this.state.archiveItems.filter(item => item.dateCreated.substring(0,10) === date)
+
+  this.setState({selectedItems: selectedItems})
+//check if for each selectedItems the first 10 characters match
+//return it into an array and assign it to selectedItems
+
+
+
+    this.setState({selected: selected})
+  
+  }
+
   render(){
     return (
       <Fragment>
       <h2>Sparkive</h2>
-      <ArchiveSelect selections={this.state.archiveItems}/>
-      <CreativeInstancesList archiveItems={this.state.archiveItems}/>
+      <ArchiveSelect selections={this.state.archiveItems} handleDate={this.handleDate}/>
+      <CreativeInstancesList archiveItems={this.state.archiveItems} selectedItems={this.state.selectedItems} isSelected={this.state.selected}/>
       </Fragment>
     )
   }
