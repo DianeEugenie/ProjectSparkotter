@@ -85,7 +85,6 @@ class PromptContainer extends Component {
     dateCreated: Date.now()
     })
     .then(() => {
-      console.log(instanceBody);
       const request = new Request();
       request.post('/api/creativeInstances', instanceBody)
     })
