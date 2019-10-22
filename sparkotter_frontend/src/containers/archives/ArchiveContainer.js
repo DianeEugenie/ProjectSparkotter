@@ -1,7 +1,3 @@
-//"/sparkive"
-//state: savedSparks
-// compDidMount
-
 import React,{Component,Fragment} from 'react';
 import CreativeInstancesList from '../../components/archives/CreativeInstancesList';
 import ArchiveSelect from '../../components/archives/ArchiveSelect';
@@ -21,12 +17,15 @@ class ArchiveContainer extends Component{
       time: null,
       timesUp: false,
       resparkTime: null,
-      resparkID: null
+      resparkID: null,
+      selectedItems: [],
+      selected: false
     };
     this.handleResparkOptions = this.handleResparkOptions.bind(this);
     this.changeTimesUp = this.changeTimesUp.bind(this);
     this.sendResparkInstance = this.sendResparkInstance.bind(this);
     this.getResparkPrompt = this.getResparkPrompt.bind(this);
+    this.handleDate = this.handleDate.bind(this);
   }
 
 
@@ -34,7 +33,6 @@ class ArchiveContainer extends Component{
     const request = new Request();
     request.get('/api/creativeInstances')
     .then((data) => {
-      console.log(data);
       this.setState({archiveItems: data._embedded.creativeInstances})
     })
   }
@@ -69,6 +67,15 @@ class ArchiveContainer extends Component{
   //   });
   // }
 
+  handleDate(date, selected){
+  if (date) {
+    const selectedItems = this.state.archiveItems.filter(item => item.dateCreated.substring(0,10) === date)
+    this.setState({selectedItems: selectedItems})
+  }
+  this.setState({selected: selected})
+  }
+
+
   getResparkPrompt(prompt, time){
     this.setState({prompt: prompt.prompt, resparkTime: time, resparkID: prompt.id})
   }
@@ -82,8 +89,8 @@ class ArchiveContainer extends Component{
               return(
                 <Fragment>
                   <h2>Sparkive</h2>
-                  <ArchiveSelect selections={this.state.archiveItems}/>
-                  <CreativeInstancesList archiveItems={this.state.archiveItems} getResparkPrompt={this.getResparkPrompt}/>
+                  <ArchiveSelect selections={this.state.archiveItems} handleDate={this.handleDate}/>
+                  <CreativeInstancesList archiveItems={this.state.archiveItems} getResparkPrompt={this.getResparkPrompt} selectedItems={this.state.selectedItems} isSelected={this.state.selected}/>
                 </Fragment>)
               }}/>
 
@@ -107,18 +114,3 @@ class ArchiveContainer extends Component{
 }
 
 export default ArchiveContainer;
-
-// <Router>
-//   <Fragment>
-//     <Switch>
-//
-//
-//     </Switch>
-//   </Fragment>
-//
-// </Router>
-
-// fetch display prompt, time , date and
-
-// <ArchiveList archiveItems={this.state.archiveItems}/>
-// <ArchiveSelect selections={this.state.archiveItems}/>
