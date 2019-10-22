@@ -7,15 +7,15 @@ import Request from '../../helpers/Request';
 const TimesUpPage = (props) => {
   const optionsUrl = '/options';
   const sparkiveUrl = '/sparkive';
-  let [twitterUrl, setTwitterUrl] = useState('');
+  // let [twitterUrl, setTwitterUrl] = useState('');
 
-  useEffect(() => {
-    const request = new Request();
-    request.get('/api/prompts/prompt/last')
-      .then((data) => {
-        twitterUrl = 'https://twitter.com/intent/tweet?text=' + data.prompt;
-      })
-  })
+  // useEffect(() => {
+  //   const request = new Request();
+  //   request.get('/api/prompts/prompt/last')
+  //     .then((data) => {
+  //       twitterUrl = 'https://twitter.com/intent/tweet?text=' + data.prompt;
+  //     })
+  // })
 
   // const request = new Request();
   //
@@ -30,9 +30,9 @@ const TimesUpPage = (props) => {
     <p>Which lets you know the time is up!</p>
     <Link to={optionsUrl}><button className="start-button">New Spark</button></Link>
     <a href={sparkiveUrl}><button className="start-button">Your Sparkive</button></a>
-    <a class="twitter-share-button" href={twitterUrl}>
+    <a className="twitter-share-button" href>
     Tweet</a>
-    {console.log(twitterUrl)}
+  
     </Fragment>
   );
 }
