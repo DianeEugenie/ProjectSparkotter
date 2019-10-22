@@ -7,7 +7,7 @@ const ArchiveSelect = (props) => {
   //   console.log(props.selections[0].dateCreated.substring(0,10)) // gets YYYY-MM-DD
   // }
 
-  const allDates = Array.from(new Set(props.selections.map(date => date.dateCreated.substring(0,10)))).reverse()
+  const allDates = Array.from(new Set(props.selections.map(date => date.dateCreated.substring(0,10))))
   //props.selections.map(date => moment(date.dateCreated).local().format('LL'));
 
   const sendDate = (event) => {

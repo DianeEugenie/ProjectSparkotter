@@ -43,7 +43,8 @@ class ArchiveContainer extends Component{
     } else {
       this.setState({time: minutes});
     }
-    this.sendResparkInstance();
+
+    setTimeout(this.sendResparkInstance, 1000)
   }
 
   sendResparkInstance(){
