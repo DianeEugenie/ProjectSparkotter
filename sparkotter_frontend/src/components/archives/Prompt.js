@@ -5,11 +5,11 @@ const Prompt = (props) => {
   const url = "/prompts/" + props.prompt.id;
   return (
 
-    <React.Fragment>
+    <Fragment>
       <Link to={url} className="promptName">
         {props.prompt.prompt}
       </Link>
-    </React.Fragment>
+    </Fragment>
   )
 }
 export default Prompt;

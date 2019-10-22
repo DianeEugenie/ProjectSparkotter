@@ -1,6 +1,5 @@
 // prop: randomPrompt
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Timer from '../time_elements/Timer';
 
 const DisplayPrompt = (props) => {
