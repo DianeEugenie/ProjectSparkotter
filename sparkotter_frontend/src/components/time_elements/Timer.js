@@ -47,11 +47,11 @@ class Timer extends Component{
   countingDown() {
     let counter = this.state.selectedTime;
 
-    if (counter >= 1) {
+    if (counter > 1) {
       counter -= 1;
       this.setState({selectedTime: counter});
-    } else if (counter === 0 && this.state.timerOn) {
-      window.location = "/spark/timesup"
+    } else if (counter === 1 && this.state.timerOn) {
+      this.props.changeTimesUp(true);
     }
 
   }

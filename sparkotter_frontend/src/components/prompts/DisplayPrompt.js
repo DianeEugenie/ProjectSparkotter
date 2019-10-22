@@ -1,6 +1,7 @@
 // prop: randomPrompt
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Timer from '../time_elements/Timer';
 
 const DisplayPrompt = (props) => {
 
@@ -8,12 +9,18 @@ const DisplayPrompt = (props) => {
     return "Sparky is fetching your prompt.."
   }
 
+  const changeTimesUp = () => {
+    props.changeTimesUp(true);
+  }
+
   return(
     <div>
+    <Timer time={props.time} changeTimesUp={props.changeTimesUp}/>
     <p className="prompt">{props.prompt}</p>
 
+
     {!props.time ?
-      <Link to="/spark/timesup"><button className="timer-button">I'm Done!</button></Link> : ''
+      <button className="timer-button" onClick={changeTimesUp}>I'm Done!</button> : ''
     }
     </div>
   );
