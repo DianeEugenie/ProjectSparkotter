@@ -45,16 +45,12 @@ class PromptContainer extends Component {
     })
   }
 
-  // componentDidMount(){
-  //   this.fetchPrompt();
-  // }
-
   handleOptions(minutes){
     if (minutes === 'null') {
       this.setState({time: null});
     } else {
       this.setState({time: minutes});
-    } 
+    }
 
     this.fetchPrompt();
   }
@@ -91,7 +87,7 @@ class PromptContainer extends Component {
 
             <Route exact path="/" render={(props) => {
               return <StartPage />
-            }} />
+            }}/>
 
             <Route exact path="/spark" render={(props) => {
               return <PromptPage time={this.state.time} prompt={this.state.prompt} />
