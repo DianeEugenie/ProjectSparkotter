@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(excerptProjection = EmbedPrompt.class)
 public interface PromptRepository extends JpaRepository<Prompt, Long>, PromptRepositoryCustom {
+    Boolean existsByPrompt(String prompt);
 }

@@ -116,4 +116,16 @@ class SparkotterBackendApplicationTests {
 		Prompt found = promptRepository.findLast();
 		assertNotNull(found);
 	}
+
+	@Test
+	void canCheckIfStringExists__true() {
+		boolean answerTrue = promptRepository.existsByPrompt("Happy Otter");
+		assertTrue(answerTrue);
+	}
+
+	@Test
+	void canCheckIfStringExists__false() {
+		boolean answerFalse = promptRepository.existsByPrompt("Sad Otter");
+		assertFalse(answerFalse);
+	}
 }
