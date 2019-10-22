@@ -12,11 +12,9 @@ const TimesUpPage = (props) => {
     props.changeTimesUp(false);
   }
 
-  const tweetText = "https://twitter.com/intent/tweet?text=Sparkotter Inspired Me With " + props.prompt + "";
-
-
-
-
+  const tweetText = "https://twitter.com/intent/tweet?text=Sparkotter Inspired Me With "
+   + props.prompt
+   + "&hashtags=Sparkotter%2CGetCreative";
 
   return (
     <Fragment>
