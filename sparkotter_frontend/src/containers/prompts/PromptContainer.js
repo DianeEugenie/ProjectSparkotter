@@ -35,15 +35,8 @@ class PromptContainer extends Component {
   fetchPrompt(){
     const request = new Request();
 
-    const min = 1;
-    const adjMax = 87;
-    const nounMax = 300;
-    const randAdjIndex = Math.floor((min + Math.random() * (adjMax - min)));
-    const randNounIndex = Math.floor((min + Math.random() * (nounMax - min)));
-
-
-    const adjPromise = request.get("/api/adjectiveWords/" + randAdjIndex);
-    const nounPromise = request.get("/api/nounWords/" + randNounIndex);
+    const adjPromise = request.get("/api/adjectiveWords/word/random");
+    const nounPromise = request.get("/api/nounWords/word/random");
 
     Promise.all([adjPromise, nounPromise])
     .then(data => {
