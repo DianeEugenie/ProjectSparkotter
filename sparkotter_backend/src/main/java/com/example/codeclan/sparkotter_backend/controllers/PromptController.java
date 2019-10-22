@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/prompts")
 public class PromptController {
@@ -24,5 +26,11 @@ public class PromptController {
     public boolean checksPromptExists(@PathVariable String promptString){
         return promptRepository.existsByPrompt(promptString);
     }
+
+    @GetMapping(value="/all/descending")
+    public List<Prompt> getAllDescending(){
+        return promptRepository.findAllByOrderByIdDesc();
+    }
+
 
 }
