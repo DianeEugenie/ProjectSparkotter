@@ -4,8 +4,8 @@ import moment from 'moment';
 
 const CreativeInstance = (props) => {
 
-  const promptName = props.creativeInstance._embedded.prompt.prompt;
-  const prompt = props.creativeInstance._embedded.prompt;
+  const promptName = props.creativeInstance.prompt.prompt;
+  const prompt = props.creativeInstance.prompt;
   const time = props.creativeInstance.prompt_time;
 
   const getResparkPrompt = () => {
