@@ -7,18 +7,13 @@ import Request from '../../helpers/Request';
 const TimesUpPage = (props) => {
   const optionsUrl = '/options';
   const sparkiveUrl = '/sparkive';
-  // let [twitterUrl, setTwitterUrl] = useState('');
 
-  // useEffect(() => {
-  //   const request = new Request();
-  //   request.get('/api/prompts/prompt/last')
-  //     .then((data) => {
-  //       twitterUrl = 'https://twitter.com/intent/tweet?text=' + data.prompt;
-  //     })
-  // })
+  const handleTimesUp = () => {
+    props.changeTimesUp(false);
+  }
 
-  // const request = new Request();
-  //
+  const tweetText = "https://twitter.com/intent/tweet?text=Sparkotter Inspired Me With " + props.prompt + "";
+
 
 
 
@@ -26,13 +21,11 @@ const TimesUpPage = (props) => {
   return (
     <Fragment>
     <img className="times-up-logo" src="https://media.discordapp.net/attachments/318372572775317505/635594327724392458/timesup.png" />
-    <p>This is the Times Up of the Prompt Container</p>
-    <p>Which lets you know the time is up!</p>
-    <Link to={optionsUrl}><button className="start-button">New Spark</button></Link>
-    <a href={sparkiveUrl}><button className="start-button">Your Sparkive</button></a>
-    <a className="twitter-share-button" href>
+    <Link to={optionsUrl}><button className="start-button" onClick={handleTimesUp}>New Spark</button></Link>
+    <a href={sparkiveUrl}><button className="start-button" onClick={handleTimesUp}>Your Sparkive</button></a>
+    <a className="twitter-share-button" href={tweetText}>
     Tweet</a>
-  
+
     </Fragment>
   );
 }

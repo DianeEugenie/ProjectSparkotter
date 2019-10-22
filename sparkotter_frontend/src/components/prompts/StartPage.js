@@ -13,7 +13,7 @@ const StartPage = (props) => {
     <Fragment>
       <Link to={optionUrl}><button className="start-button">
       Time To Spark</button></Link>
-      <Link to={customUrl}><button className="custom-button">Ignite Your Own Spark!</button></Link>
+      <Link to={customUrl}><button className="start-button">Ignite Your Own Spark!</button></Link>
     </Fragment>
   );
 }

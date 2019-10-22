@@ -11,9 +11,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-self: center;
+
   text-align: center;
-  justify-content: space-around;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -116,6 +115,7 @@ a {
 .logo {
   height: 30vmin;
   object-fit:contain;
+  margin-top: 0.5em;
 }
 .times-up-logo {
   height: 27vh;
