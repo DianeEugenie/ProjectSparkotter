@@ -19,6 +19,9 @@ class Timer extends Component{
     this.setState({selectedTime: seconds,
     pausedTime: seconds});
   }
+  componentWillUnmount(){
+    clearInterval(this.interval);
+  }
 
 
 
@@ -26,10 +29,9 @@ class Timer extends Component{
   clickTimer(){
 
     if (!this.state.timerOn) {
-      let interval;
       this.setState({timerOn: true});
       if (this.state.pausedTime === this.state.selectedTime) {
-        interval = setInterval(this.countingDown, 1000);
+        this.interval = setInterval(this.countingDown, 1000);
       } else {
         this.setState({selectedTime: this.state.pausedTime});
       }

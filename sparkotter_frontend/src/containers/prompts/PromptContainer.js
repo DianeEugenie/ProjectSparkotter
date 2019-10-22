@@ -59,7 +59,9 @@ class PromptContainer extends Component {
 
     if(!this.state.custom) {
     this.fetchPrompt();
-    }
+  } else {
+    this.sendPrompt();
+  }
 
   }
 
@@ -67,7 +69,8 @@ class PromptContainer extends Component {
   sendPrompt(){
     const request = new Request();
     const promptBody = {
-      prompt: this.state.prompt
+      prompt: this.state.prompt,
+      customPrompt: this.state.custom
     }
 
     request.post('/api/prompts', promptBody)
@@ -90,7 +93,6 @@ onCustomSubmit(customPrompt){
     dateCreated: Date.now()
     })
     .then(() => {
-      console.log(instanceBody);
       const request = new Request();
       request.post('/api/creativeInstances', instanceBody)
     })

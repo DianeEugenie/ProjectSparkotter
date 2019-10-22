@@ -3,9 +3,10 @@
 // compDidMount
 
 import React,{Component,Fragment} from 'react';
-import ArchiveItem from '../../components/archives/ArchiveItem';
-import ArchiveList from '../../components/archives/ArchiveList';
+import Prompt from '../../components/archives/Prompt'
+import CreativeInstancesList from '../../components/archives/CreativeInstancesList';
 import ArchiveSelect from '../../components/archives/ArchiveSelect';
+import CreativeInstance from '../../components/archives/CreativeInstance';
 import Request from '../../helpers/Request';
 
 
@@ -14,7 +15,7 @@ class ArchiveContainer extends Component{
   constructor(props){
     super(props);
     this.state = {
-      archiveItems: [{prompt:"angel drop", date: "Tuesday"}, {prompt:"sparky apple", date: "Thursday"}]
+      archiveItems: []
     }
   }
 
@@ -23,7 +24,8 @@ class ArchiveContainer extends Component{
     const request = new Request();
     request.get('/api/creativeInstances')
     .then((data) => {
-      this.setState({archiveItems: data._embedded.archiveItems})
+      console.log(data);
+      this.setState({archiveItems: data._embedded.creativeInstances})
     })
   }
   //
@@ -37,8 +39,8 @@ class ArchiveContainer extends Component{
     return (
       <Fragment>
       <h2>Sparkive</h2>
-      <ArchiveList archiveItems={this.state.archiveItems}/>
       <ArchiveSelect selections={this.state.archiveItems}/>
+      <CreativeInstancesList archiveItems={this.state.archiveItems}/>
       </Fragment>
     )
   }
@@ -56,4 +58,7 @@ export default ArchiveContainer;
 //
 // </Router>
 
-// fetch display prompt, time , date and 
+// fetch display prompt, time , date and
+
+// <ArchiveList archiveItems={this.state.archiveItems}/>
+// <ArchiveSelect selections={this.state.archiveItems}/>
