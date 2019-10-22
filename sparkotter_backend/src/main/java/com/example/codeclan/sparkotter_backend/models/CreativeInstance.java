@@ -19,7 +19,6 @@ public class CreativeInstance {
     @Column(name = "prompt_time")
     private double prompt_time;
 
-    @JsonIgnoreProperties("instance")
     @ManyToOne
     @JoinColumn(name="prompt_id", nullable = false)
     private Prompt prompt;
