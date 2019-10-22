@@ -46,7 +46,7 @@ class OptionsForm extends Component {
     value='null'
     className="time-option-button"
     onClick={this.handleOptions}>
-    No Limit!</button>
+    &#x221e;</button>
     </Link>
       <Link to="/spark">
       <button type='button'

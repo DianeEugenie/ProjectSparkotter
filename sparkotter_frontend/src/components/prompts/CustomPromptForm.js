@@ -22,7 +22,7 @@ class CustomPromptForm extends Component{
     const min = 1;
     const max = customList.length;
     const index = Math.floor((min + Math.random() * (max - min)));
-    const randomPrompt = customList[index];
+    const randomPrompt = customList[index].trim();
     this.props.onCustomSubmit(randomPrompt)
   }
 
