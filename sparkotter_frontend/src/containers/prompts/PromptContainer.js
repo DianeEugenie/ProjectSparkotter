@@ -15,12 +15,15 @@ class PromptContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      prompt: "Fetching the prompt...",
+      prompt: "",
       time: null,
-      custom: false
+      custom: false,
+      promptInstance: null
     }
 
     this.handleOptions = this.handleOptions.bind(this);
+    this.sendPrompt = this.sendPrompt.bind(this);
+    this.sendInstance = this.sendInstance.bind(this);
     this.onCustomSubmit = this.onCustomSubmit.bind(this);
   }
 
@@ -43,6 +46,8 @@ class PromptContainer extends Component {
     .then(data => {
       this.setState({prompt: data[0].adjectiveCap + " " + data[1].nounCap})
     })
+    .then(() => this.sendPrompt())
+
   }
 
   handleOptions(minutes){
@@ -52,24 +57,48 @@ class PromptContainer extends Component {
       this.setState({time: minutes});
     }
 
+    if(!this.state.custom) {
     this.fetchPrompt();
+    }
+
   }
 
-  onCustomSubmit(customPrompt){
-    this.setState({prompt: customPrompt, custom: true});
+
+  sendPrompt(){
+    const request = new Request();
+    const promptBody = {
+      prompt: this.state.prompt
+    }
+
+    request.post('/api/prompts', promptBody)
+    .then(() => this.sendInstance())
   }
 
-  //FETCH sequence
-  // Get fetch adjective
-  // getRandomAdjectiveIndex() number = 1-87
-  // getRandomNounIndex() number = 1-300
-  // /api/adjectiveWord/number
+onCustomSubmit(customPrompt){
+  this.setState({prompt: customPrompt, custom: true});
+}
 
-  // Get fetch noun
-  // .Then Post adjective/noun PROMPT
-  // .Then {prompt: adj, noun}
-  // .Then Post new INSTANCE (send prompt and time)
-  // .Then display PROMPT and timer page.
+  sendInstance(){
+    let instanceBody;
+
+    const request = new Request();
+
+    request.get('/api/prompts/prompt/last')
+    .then(data => this.setState({promptInstance: data}))
+    .then(() => instanceBody = {prompt: "http://localhost:8080/api/prompts/" + this.state.promptInstance.id,
+    prompt_time: this.state.time,
+    dateCreated: Date.now()
+    })
+    .then(() => {
+      console.log(instanceBody);
+      const request = new Request();
+      request.post('/api/creativeInstances', instanceBody)
+    })
+
+
+  }
+
+
 
   //handleRespark(){}
   //Get fetches old INSTANCE
