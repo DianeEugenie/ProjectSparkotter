@@ -21,24 +21,24 @@ const CreativeInstancesList = (props) => {
 
 
   let selectedInstances = [];
+
   if (props.selectedItems.length > 0) {
+
   selectedInstances =  props.selectedItems.map((instance, index) => {
     return (<li key={index} className="component-item">
     <div className="component">
     <CreativeInstance creativeInstance={instance} />
     </div>
     </li>)
-  }) } else if (props.selectedItems.length === 0){
-  selectedInstances = null;
-    return selectedInstances;
-  }
+  }) } 
 
 
 
   return (
     <Fragment>
     <ul className="component-list">
-    {props.selectedItems.length ? (selectedInstances) : (creativeInstances)}
+
+    {props.isSelected ? (selectedInstances) : (creativeInstances)}
     </ul>
     </Fragment>
   )

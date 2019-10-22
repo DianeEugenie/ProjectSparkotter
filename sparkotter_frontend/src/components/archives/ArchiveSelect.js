@@ -11,7 +11,11 @@ const ArchiveSelect = (props) => {
   //props.selections.map(date => moment(date.dateCreated).local().format('LL'));
 
   const sendDate = (event) => {
+    if (!event.target.value) {
+      props.handleDate(event.target.value, false)
+    } else {
     props.handleDate(event.target.value, true)
+    }
   }
 
   // const uniqueDates(date, index, self)function onlyUnique(value, index, self) {

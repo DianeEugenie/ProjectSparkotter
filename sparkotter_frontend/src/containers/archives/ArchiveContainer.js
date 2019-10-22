@@ -39,17 +39,19 @@ class ArchiveContainer extends Component{
   // }
 
   handleDate(date, selected){
-//go through archiveItems
-  const selectedItems = this.state.archiveItems.filter(item => item.dateCreated.substring(0,10) === date)
+    if (date) {
+      const selectedItems = this.state.archiveItems.filter(item => item.dateCreated.substring(0,10) === date)
 
-  this.setState({selectedItems: selectedItems})
+      this.setState({selectedItems: selectedItems})
 //check if for each selectedItems the first 10 characters match
 //return it into an array and assign it to selectedItems
-
+    }
 
 
     this.setState({selected: selected})
-  
+
+
+
   }
 
   render(){
