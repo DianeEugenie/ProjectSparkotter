@@ -8,7 +8,7 @@ const Header = (props) => {
 
     <Fragment>
     <a href="http://localhost:3000/">
-    <img class="logo" src={"https://media.discordapp.net/attachments/318372572775317505/635615985109303296/logo2.png"}/></a>
+    <img className="logo" src={"https://media.discordapp.net/attachments/318372572775317505/635615985109303296/logo2.png"}/></a>
       <h3>Ignite Your Passion For Creativity</h3>
 
 

@@ -8,6 +8,7 @@ import TimesUpPage from '../../components/time_elements/TimesUpPage';
 import PromptPage from '../../components/prompts/PromptPage';
 import StartPage from '../../components/prompts/StartPage';
 import OptionsForm from '../../components/time_elements/OptionsForm';
+import CustomPromptForm from '../../components/prompts/CustomPromptForm';
 import Request from '../../helpers/Request';
 
 class PromptContainer extends Component {
@@ -23,6 +24,7 @@ class PromptContainer extends Component {
     this.handleOptions = this.handleOptions.bind(this);
     this.sendPrompt = this.sendPrompt.bind(this);
     this.sendInstance = this.sendInstance.bind(this);
+    this.onCustomSubmit = this.onCustomSubmit.bind(this);
   }
 
 
@@ -48,7 +50,6 @@ class PromptContainer extends Component {
 
   }
 
-
   handleOptions(minutes){
     if (minutes === 'null') {
       this.setState({time: null});
@@ -72,6 +73,10 @@ class PromptContainer extends Component {
     request.post('/api/prompts', promptBody)
     .then(() => this.sendInstance())
   }
+
+onCustomSubmit(customPrompt){
+  this.setState({prompt: customPrompt, custom: true});
+}
 
   sendInstance(){
     let instanceBody;
@@ -100,7 +105,7 @@ class PromptContainer extends Component {
   //.Then POST new INSTANCE - old prompt with NEW time
   //.Then display prompt and timer page.
 
-
+  //add function to custom prompt receiving redirect to options page
 
   render(){
     return (
@@ -110,7 +115,7 @@ class PromptContainer extends Component {
 
             <Route exact path="/" render={(props) => {
               return <StartPage />
-            }} />
+            }}/>
 
             <Route exact path="/spark" render={(props) => {
               return <PromptPage time={this.state.time} prompt={this.state.prompt} />
@@ -124,7 +129,14 @@ class PromptContainer extends Component {
             <Route exact path="/options" render={(props) => {
               return <OptionsForm onSubmit={this.handleOptions}/>
             }}/>
+
+            <Route exact path="/custom" render={(props) => {
+              return <CustomPromptForm onCustomSubmit={this.onCustomSubmit} />
+            }}/>
+
+
           </Switch>
+
         </Fragment>
       </Router>
     )
