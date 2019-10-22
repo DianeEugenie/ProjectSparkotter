@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import {Link} from 'react-router-dom';
 import CreativeInstance from './CreativeInstance';
 
 
@@ -13,7 +12,7 @@ const CreativeInstancesList = (props) => {
     return (
       <li key={index} className="component-item">
       <div className="component">
-      <CreativeInstance creativeInstance={instance} />
+      <CreativeInstance creativeInstance={instance} getResparkPrompt={props.getResparkPrompt}/>
       </div>
       </li>
     )
@@ -30,7 +29,7 @@ const CreativeInstancesList = (props) => {
     <CreativeInstance creativeInstance={instance} />
     </div>
     </li>)
-  }) } 
+  }) }
 
 
 

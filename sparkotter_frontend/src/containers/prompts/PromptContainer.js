@@ -4,7 +4,6 @@
 //Router / TimesUpPage - PromptPage StartPage
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import TimesUpPage from '../../components/time_elements/TimesUpPage';
 import PromptPage from '../../components/prompts/PromptPage';
 import StartPage from '../../components/prompts/StartPage';
 import OptionsForm from '../../components/time_elements/OptionsForm';
@@ -98,6 +97,8 @@ onCustomSubmit(customPrompt){
 
 
   }
+
+  
 
   changeTimesUp(value){
     this.setState({timesUp: value});
