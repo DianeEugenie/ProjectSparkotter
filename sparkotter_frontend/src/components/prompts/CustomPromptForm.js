@@ -18,19 +18,23 @@ class CustomPromptForm extends Component{
   }
 
   handleCustomSubmit(event){
+
     const customList = this.state.customPrompt.split(',');
     const min = 1;
     const max = customList.length;
     const index = Math.floor((min + Math.random() * (max - min)));
     const randomPrompt = customList[index].trim();
     this.props.onCustomSubmit(randomPrompt)
-  }
+
+}
 
   render(){
     return (
       <div>
-      <input type="text" placeholder="Custom Prompt" name="customPrompt" onChange={this.handleTextInput} value={this.state.customPrompt}/>
-        <Link to="/options"><button onClick={this.handleCustomSubmit} type="button">Submit Your Prompt!</button></Link>
+      <textarea type="text" placeholder="Custom Prompt" className="customPrompt" onChange={this.handleTextInput} value={this.state.customPrompt}/>
+
+      {this.state.customPrompt ?
+        (<Link to="/options"><button onClick={this.handleCustomSubmit} type="button">Submit Your Prompt!</button></Link>) : '' }
       </div>
     )
 
