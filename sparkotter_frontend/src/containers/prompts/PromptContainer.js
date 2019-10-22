@@ -18,14 +18,17 @@ class PromptContainer extends Component {
       prompt: "",
       time: null,
       custom: false,
-      promptInstance: null
+      promptInstance: null,
+      timesUp: false
     }
 
     this.handleOptions = this.handleOptions.bind(this);
     this.sendPrompt = this.sendPrompt.bind(this);
     this.sendInstance = this.sendInstance.bind(this);
     this.onCustomSubmit = this.onCustomSubmit.bind(this);
+    this.changeTimesUp = this.changeTimesUp.bind(this);
   }
+
 
 
 
@@ -100,6 +103,10 @@ onCustomSubmit(customPrompt){
 
   }
 
+  changeTimesUp(value){
+    this.setState({timesUp: value});
+  }
+
 
 
   //handleRespark(){}
@@ -121,12 +128,13 @@ onCustomSubmit(customPrompt){
             }}/>
 
             <Route exact path="/spark" render={(props) => {
-              return <PromptPage time={this.state.time} prompt={this.state.prompt} />
+              return <PromptPage time={this.state.time}
+              prompt={this.state.prompt}
+              timesup={this.state.timesUp}
+              changeTimesUp={this.changeTimesUp} />
             }}/>
 
-            <Route exact path="/spark/timesup" render={(props) => {
-              return <TimesUpPage />
-            }}/>
+
 
 
             <Route exact path="/options" render={(props) => {
