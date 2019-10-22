@@ -6,6 +6,7 @@ import React,{Component,Fragment} from 'react';
 import ArchiveItem from '../../components/archives/ArchiveItem';
 import ArchiveList from '../../components/archives/ArchiveList';
 import ArchiveSelect from '../../components/archives/ArchiveSelect';
+import Request from '../../helpers/Request';
 
 
 
@@ -18,14 +19,13 @@ class ArchiveContainer extends Component{
   }
 
 
-  // componentDidMount(){
-  //   const request = new Request();
-  //
-  //   request.get('/savedSparks')
-  //   .then((data) => {
-  //     this.setState({archiveItems: data._embedded.archiveItems})
-  //   })
-  // }
+  componentDidMount(){
+    const request = new Request();
+    request.get('/api/creativeInstances')
+    .then((data) => {
+      this.setState({archiveItems: data._embedded.archiveItems})
+    })
+  }
   //
   // findArchiveItemById(id){
   //   return this.state.archiveItems.find((archiveItem) => {
@@ -55,3 +55,5 @@ export default ArchiveContainer;
 //   </Fragment>
 //
 // </Router>
+
+// fetch display prompt, time , date and 
