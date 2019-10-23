@@ -131,7 +131,7 @@ class SparkotterBackendApplicationTests {
 
 	@Test
 	void canGetAllPromptsByDescendingOrder() {
-		List<Prompt> found = promptRepository.findAllByOrderByIdDesc();
-		assertEquals("Green Otter", found.get(0).getPrompt());
+		List<CreativeInstance> found = instanceRepository.findAllByOrderByIdDesc();
+		assertEquals(20, found.get(0).getPrompt_time());
 	}
 }
