@@ -11,6 +11,7 @@ const CreativeInstance = (props) => {
   const promptName = props.creativeInstance.prompt.prompt;
   const prompt = props.creativeInstance.prompt;
   const time = props.creativeInstance.prompt_time;
+  console.log(props.creativeInstance.prompt.customPrompt);
 
   const getResparkPrompt = () => {
     props.getResparkPrompt(prompt, time);
@@ -22,7 +23,7 @@ const CreativeInstance = (props) => {
     <Fragment>
       <div className="sparkive-instance">
         <Link className="prompt-link"to={url}><p className="sparkive-prompt">{promptName}</p></Link>
-        <p>{props.creativeInstance.customPrompt ? "Your Spark" : "Our Spark"}</p>
+        <p>{props.creativeInstance.prompt.customPrompt ? "Your Spark" : "Our Spark"}</p>
         <p className="sparkive-time">{props.creativeInstance.prompt_time} mins</p>
         <p className="sparkive-date">{moment(props.creativeInstance.dateCreated).local().format('DD MMM')}</p>
         <Link to='/resparkoptions'> <button className="respark-buttons"onClick={getResparkPrompt}>Respark</button></Link>
