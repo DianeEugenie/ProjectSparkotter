@@ -289,3 +289,35 @@ textarea{
   font-size: 1.5em;
   color: #766CEC;
 }
+
+.about-title {
+  font-family: 'Londrina Sketch', cursive;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-size: 2em;
+  color: #55aaff;
+  margin: 0.2em auto;
+  background: -webkit-linear-gradient(#4877E7, #66E8AF, #4877E7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.github-img{
+  height: 2em;
+  object-fit: contain;
+  padding-left: 1em;
+}
+
+.about-name{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #f0c22e;
+}
+
+.about-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}

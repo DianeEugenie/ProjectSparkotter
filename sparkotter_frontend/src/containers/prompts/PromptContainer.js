@@ -98,7 +98,7 @@ onCustomSubmit(customPrompt){
 
   }
 
-  
+
 
   changeTimesUp(value){
     this.setState({timesUp: value});
@@ -130,9 +130,6 @@ onCustomSubmit(customPrompt){
               timesup={this.state.timesUp}
               changeTimesUp={this.changeTimesUp} />
             }}/>
-
-
-
 
             <Route exact path="/options" render={(props) => {
               return <OptionsForm onSubmit={this.handleOptions}/>
