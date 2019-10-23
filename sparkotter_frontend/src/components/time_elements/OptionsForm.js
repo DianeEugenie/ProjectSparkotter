@@ -38,16 +38,18 @@ class OptionsForm extends Component {
 
   return (
     <Fragment>
-    <p>Select your creative minutes:</p>
+    <p>How long are you creating for (minutes)?</p>
 
     <div className='button-options'>
-    <Link to="/spark">
-    <button type='button'
-    value='null'
-    className="time-option-button"
-    onClick={this.handleOptions}>
-    &#x221e;</button>
-    </Link>
+    <div className='buttons-row1'>
+      <Link to="/spark">
+      <button type='button'
+      value='null'
+      className="time-option-button"
+      onClick={this.handleOptions}>
+      &#x221e;</button>
+      </Link>
+
       <Link to="/spark">
       <button type='button'
       value='5'
@@ -64,7 +66,9 @@ class OptionsForm extends Component {
       10
       </button>
       </Link>
+    </div>
 
+    <div className='buttons-row2'>
       <Link to="/spark">
       <button type='button'
       value='20'
@@ -89,27 +93,24 @@ class OptionsForm extends Component {
       onClick={this.handleOptions}>
       60</button>
       </Link>
+    </div>
+    </div>
 
+    <div className="time-select-layout">
+      <input type='number'
+      name="time"
+      min='0'
+      className="time-select"
+      placeholder='Or enter your own!'
+      onChange={this.handleCreatedOption} value={this.state.selectedTime} />
 
-  </div>
-
-        <input type='number'
-        name="time"
-        min='0'
-        className="time-select"
-        placeholder='Or enter your own!'
-        onChange={this.handleCreatedOption} value={this.state.selectedTime} />
-
-        {this.state.selectedTime === '' ? ('') :
-
-          (<Link to="/spark">
+      {this.state.selectedTime === '' ? ('') :
+        (<Link to="/spark">
         <button type='submit'
         className='time-select-button'
         onClick={this.handleSubmit}>Inspire Me!</button>
         </Link>)}
-
-
-
+    </div>
 
     </Fragment>
   );

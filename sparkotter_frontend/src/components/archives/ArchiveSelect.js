@@ -34,7 +34,7 @@ const ArchiveSelect = (props) => {
   return (
     <div>
 
-    <select name="archiveItem" onChange={sendDate}>
+    <select className="sparkive-select" name="archiveItem" onChange={sendDate}>
     <option selected value=''>Show All Sparks</option>
     {archiveOptions}
 

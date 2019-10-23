@@ -6,8 +6,8 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-  
+    <div className="page-layout">
+
     <Header />
     <MainContainer />
     <Footer />

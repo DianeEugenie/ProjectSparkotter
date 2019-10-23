@@ -14,12 +14,14 @@ const MainContainer = ()  =>{
   return (
     <Router>
       <Fragment>
+        <div className="main-layout">
         <PromptContainer />
 
         <Switch>
           <Route exact path="/aboutus" component={AboutUs}/>
           <Route exact path="/sparkive" component={ArchiveContainer}/>
         </Switch>
+        </div>
       </Fragment>
     </Router>
   );

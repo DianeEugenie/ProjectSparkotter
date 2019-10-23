@@ -7,7 +7,7 @@
 }
 
 #root {
-  background-color: #282c34;
+  background-color: #373c4a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,11 +16,18 @@
   color: white;
 }
 .prompt{
-  color: yellow;
+  color: #f0c22e;
+  font-size: 1.5em;
+  font-family: monospace;
+  border: 1px solid #c91d14;
+  padding: 0.5em;
+  border-radius: 20px;
+  max-width: 60vw;
 }
 
 a.twitter-share-button{
   background-color: #38A1F3;
+  margin-top: 0.5em;
   padding: 0.5em 1.5em;
   font-size: 0.7em;
   border: 1px solid white;
@@ -29,10 +36,14 @@ a.twitter-share-button{
   text-decoration: none;
 }
 
+a.twitter-share-button:hover{
+  background-color: #3169ad;
+}
+
 button.time-option-button{
   background-image: linear-gradient(to bottom right, #D868DE, #766CEC);
   box-shadow: 2px 0 5px 0 #766CEC;
-  font-size: 2.5em;
+  font-size: 2em;
   margin-top: 0.4em;
   border-radius: 20px;
   min-width: 2em;
@@ -46,7 +57,7 @@ button.time-option-button:hover, button.time-option-button:focus{
 button.time-select-button {
 background-image: linear-gradient(to left, #4877E7, #66E8AF);
 box-shadow: 2px 0 5px 0 #4877E7;
-font-size: 2em;
+font-size: 1.8em;
 margin: 0.1em;
 border-radius: 20px;
 min-width: 2em;
@@ -58,11 +69,26 @@ background-image: linear-gradient(to right, #4877E7, #66E8AF);
 transform: translate(0.5px, 1px);
 }
 
-button.timer-button, button.start-button{
+button.start-button{
 background-image: linear-gradient(to right, #4877E7, #66E8AF);
-padding: 0.5em 1.5em;
+padding: 0.5em 1.5em 0.7em 1.5em;
+margin: 0.5em;
 border-radius: 20px;
-font-size: 0.7em;
+font-size: 0.8em;
+}
+
+button.timer-button{
+  background-image: linear-gradient(to right, #4877E7, #66E8AF);
+  padding: 0.3em 1.5em 0.1em 1.5em;
+  margin: 1em;
+  border-radius: 20px;
+  font-size: 0.8em;
+}
+
+.play-buttons{
+  height: 1.5em;
+  object-fit: contain;
+  margin:0;
 }
 
 button.timer-button:hover, button.start-button:hover{
@@ -74,30 +100,35 @@ input.time-select {
   box-shadow: 2px 0 5px 0 #4877E7;
   border-radius: 20px;
   color: black;
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-top: 0.8em;
   text-align: center;
 }
 
 .time-select::placeholder {
-  color: #8B4513;
+  color: #51608a;
 }
 
 .App-link {
   color: #09d3ac;
 }
 .timer{
-  background-color:beige;
+  background-image:linear-gradient(rgba(201, 29, 20, 0.7), rgba(240, 194, 46, 0.8), rgba(201, 29, 20, 0.7));
   padding: 0.2em;
   margin: 1em;
   font-size: 1.5em;
   color: black;
   border-radius: 20px;
+  height:23%;
 }
 .timer-display{
   border: 1px solid black;
   border-radius: 20px;
+  margin:0;
+  margin-top: 1em;
 }
+
+
 
 .prompt-page {
   display: flex;
@@ -121,19 +152,140 @@ a {
 }
 
 .logo {
-  height: 30vmin;
+  height: 20vh;
   object-fit:contain;
   margin-top: 0.5em;
 }
 .times-up-logo {
-  height: 27vh;
+  height: 24vh;
   object-fit:contain;
+  margin: 0;
+  padding: 0;
 
 }
+h4 {
+  font-family: 'Londrina Sketch', cursive;
+  letter-spacing: 0.1em;
+  font-size: 1.2em;
+  margin: 0;
+  padding-top: 0.3em;
+}
 
-  h3 {
-    font-family: 'Londrina Sketch', cursive;
-    font-size: 1.5em;
-    letter-spacing: 0.1em;
-    color: #55aaff;
-  }
+h3 {
+  font-family: 'Londrina Sketch', cursive;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: #f57811;
+  background: -webkit-linear-gradient(#c91d14, #f0c22e, #c91d14);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-family: 'Londrina Sketch', cursive;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+  margin: 0;
+  color: #f57811;
+  background: -webkit-linear-gradient(#4877E7, #66E8AF, #4877E7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lightbulb {
+  height: 1.3em;
+  object-fit: contain;
+  padding-left: 0.5em;
+}
+
+.start-buttons{
+  display: flex;
+  flex-direction: column;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  margin: 0 auto;
+}
+
+.time-select-layout {
+  display:flex;
+  flex-direction: column;
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 25vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.sparkive-instance{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.8em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+}
+
+.sparkive-prompt{
+  text-align: left;
+  width: 10em;
+}
+
+.sparkive-list{
+  overflow-y: scroll;
+  margin-left: 1em;
+}
+
+.respark-buttons{
+  background-image: linear-gradient(to right, #4877E7, #66E8AF);
+  padding: 0.5em 1em 0.5em 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 20px;
+  font-size: 0.8em;
+}
+
+.sparkive-select {
+  background-image: linear-gradient(to top, #D868DE, #766CEC);
+  font-size: 0.8em;
+}
+
+.custom-prompt{
+  padding-top: 2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-intro{
+  width: 70vw;
+}
+
+textarea{
+  width: 60vw;
+  margin: 0 auto;
+}
+
+.sparky {
+  font-family: 'Londrina Sketch', cursive;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  font-size: 1.5em;
+  color: #766CEC;
+}
