@@ -33,7 +33,6 @@ class ArchiveContainer extends Component{
     const request = new Request();
     request.get('/api/creativeInstances/all/descending')
     .then((data) => {
-      console.log(data);
       this.setState({archiveItems: data})
     })
   }
