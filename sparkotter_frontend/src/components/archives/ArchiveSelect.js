@@ -11,7 +11,7 @@ const ArchiveSelect = (props) => {
   //props.selections.map(date => moment(date.dateCreated).local().format('LL'));
 
   const sendDate = (event) => {
-    if (!event.target.value) {
+    if (event.target.value === "default") {
       props.handleDate(event.target.value, false)
     } else {
     props.handleDate(event.target.value, true)
@@ -34,8 +34,8 @@ const ArchiveSelect = (props) => {
   return (
     <div>
 
-    <select className="sparkive-select" name="archiveItem" onChange={sendDate}>
-    <option selected value=''>Show All Sparks</option>
+    <select className="sparkive-select" name="archiveItem" onChange={sendDate} defaultValue='default'>
+    <option  value='default'>Show All Sparks</option>
     {archiveOptions}
 
     </select>
