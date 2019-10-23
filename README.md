@@ -1,3 +1,35 @@
+# Project Sparkotter
+
+## "Ignite your passion for creativity!"
+
+A creative prompt app which generates random phrases for the user as creative inspiration along with a timer of their choice. The app also allows the user to revisit the prompts.
+
+We came to the name by exploring something related to 'sparking creativity' and decided our mascot would be a creative animal. One of the most creative animals is the otter - and so we came to Sparkotter (pronounced 'Spark-uh-t-uh-r).
+
+The devs:
+[Diane Eugenie](https://github.com/DianeEugenie)
+[Martin Porter](https://github.com/MartinPorter13)
+[Gillian Shanks](https://github.com/GillianShanks)
+
+# Set Up Back End Java Spring:
+
+This project was bootstrapped with [Spring Initializr](https://start.spring.io).
+
+## In terminal
+
+Set up database:
+
+#### `createdb sparkotterService`
+
+In the project directory (navigate to sparkotter_backend), you can run:
+
+#### `java com.example.codeclan.sparkotter_backend.SparkotterBackendApplication`
+
+
+
+
+# Set Up Front End React:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
