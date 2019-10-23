@@ -11,7 +11,6 @@ const CreativeInstance = (props) => {
   const promptName = props.creativeInstance.prompt.prompt;
   const prompt = props.creativeInstance.prompt;
   const time = props.creativeInstance.prompt_time;
-  console.log(props.creativeInstance.prompt.customPrompt);
 
   const getResparkPrompt = () => {
     props.getResparkPrompt(prompt, time);
