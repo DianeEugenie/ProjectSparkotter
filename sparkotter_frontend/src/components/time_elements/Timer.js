@@ -72,9 +72,14 @@ class Timer extends Component{
       {this.state.timerOn ?
         (<div><p className='timer-display'>{timer}</p>
           <button onClick={this.clickTimer}
-      className="timer-button">Pause Timer</button></div>) :
-      (<div><p className='timer-display'>{pausedTime}</p><button onClick={this.clickTimer}
-      className="timer-button">Inspire Time</button></div>)}
+          className="timer-button">
+          <img className="play-buttons" src="http://www.transparentpng.com/thumb/pause-button/HpwO0H-pause-button-clipart-png-photos.png" alt="Pause"/>
+          </button></div>) :
+        (<div><p className='timer-display'>{pausedTime}</p>
+          <button onClick={this.clickTimer}
+          className="timer-button">
+          <img className="play-buttons" src="http://www.pngmart.com/files/3/Play-Button-Transparent-Background.png" alt="Play"/>
+          </button></div>)}
 
 
       </div>

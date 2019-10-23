@@ -12,11 +12,15 @@ const CreativeInstance = (props) => {
     props.getResparkPrompt(prompt, time);
   }
 
-  return (<Fragment>
-    <p>{promptName}</p>
-    <p>{moment(props.creativeInstance.dateCreated).local().format('LL')}</p>
-    <p>{props.creativeInstance.prompt_time}</p>
-  <Link to='/resparkoptions'> <button onClick={getResparkPrompt}>Respark</button></Link>
-  </Fragment>)
+  return (
+    <Fragment>
+      <div className="sparkive-instance">
+        <p className="sparkive-prompt">{promptName}</p>
+        <p className="sparkive-time">{props.creativeInstance.prompt_time} mins</p>
+        <p className="sparkive-date">{moment(props.creativeInstance.dateCreated).local().format('LL')}</p>
+        <Link to='/resparkoptions'> <button className="respark-buttons"onClick={getResparkPrompt}>Respark</button></Link>
+      </div>
+    </Fragment>
+  )
 }
 export default CreativeInstance;

@@ -29,11 +29,13 @@ class CustomPromptForm extends Component{
 
   render(){
     return (
-      <div>
-      <textarea type="text" placeholder="Custom Prompt" className="customPrompt" onChange={this.handleTextInput} value={this.state.customPrompt}/>
+      <div className="custom-prompt" >
+      <p className="custom-intro">Type your own prompts here and <span className="sparky">Sparky</span> will give you a random one!</p>
+      <p className="custom-intro">Separate each prompt with a comma!</p>
+      <textarea type="text" placeholder="e.g. apple, banana" onChange={this.handleTextInput} value={this.state.customPrompt}/>
 
       {this.state.customPrompt ?
-        (<Link to="/options"><button onClick={this.handleCustomSubmit} type="button">Submit Your Prompt!</button></Link>) : '' }
+        (<Link to="/options"><button className="start-button" onClick={this.handleCustomSubmit} type="button">Submit Your Prompt!</button></Link>) : '' }
       </div>
     )
 
