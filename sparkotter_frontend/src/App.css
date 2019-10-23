@@ -239,13 +239,14 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   font-size: 0.8em;
-  margin-left: 0.1em;
-  margin-right: 0.1em;
+  margin: 0;
+  width: 90vw;
 }
 
-.sparkive-prompt{
+.prompt-link{
   text-align: left;
-  width: 10em;
+  margin: 0;
+  width: 8em;
 }
 
 .sparkive-list{
@@ -320,4 +321,17 @@ textarea{
   flex-direction: column;
   justify-content: center;
 
+}
+ul{
+  margin:0;
+  padding:0;
+}
+li{
+  list-style: none;
+}
+
+.prompt-instances{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

@@ -5,7 +5,7 @@ import Request from '../../helpers/Request';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import PromptPage from "../../components/prompts/PromptPage";
 import ResparkOptionsForm from "../../components/time_elements/ResparkOptionsForm";
-
+import Prompt from "../../components/archives/Prompt";
 
 
 class ArchiveContainer extends Component{
@@ -19,13 +19,15 @@ class ArchiveContainer extends Component{
       resparkTime: null,
       resparkID: null,
       selectedItems: [],
-      selected: false
+      selected: false,
+      promptObject: null
     };
     this.handleResparkOptions = this.handleResparkOptions.bind(this);
     this.changeTimesUp = this.changeTimesUp.bind(this);
     this.sendResparkInstance = this.sendResparkInstance.bind(this);
     this.getResparkPrompt = this.getResparkPrompt.bind(this);
     this.handleDate = this.handleDate.bind(this);
+    this.findPromptById = this.findPromptById.bind(this);
   }
 
 
@@ -80,7 +82,13 @@ class ArchiveContainer extends Component{
   getResparkPrompt(prompt, time){
     this.setState({prompt: prompt.prompt, resparkTime: time, resparkID: prompt.id})
   }
-//pass down time to resparkoptionsform
+
+  findPromptById(id){
+    const request = new Request();
+    request.get("/api/prompts/"+id)
+    .then(data => this.setState({promptObject: data}))
+  }
+
   render(){
     return (
       <Router>
@@ -94,6 +102,12 @@ class ArchiveContainer extends Component{
                   <CreativeInstancesList archiveItems={this.state.archiveItems} getResparkPrompt={this.getResparkPrompt} selectedItems={this.state.selectedItems} isSelected={this.state.selected}/>
                 </Fragment>)
               }}/>
+
+            <Route exact path="/sparkive/spark/:id" render={(props) => {
+              const id = props.match.params.id;
+              this.findPromptById(id);
+              return <Prompt prompt={this.state.promptObject} getResparkPrompt={this.getResparkPrompt}/>
+            }} />
 
             <Route exact path="/respark" render={(props) => {
               return <PromptPage time={this.state.time}
