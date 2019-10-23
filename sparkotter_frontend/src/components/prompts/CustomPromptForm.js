@@ -17,14 +17,16 @@ class CustomPromptForm extends Component{
   }
 
   handleCustomSubmit(event){
-
+    if(this.state.customPrompt.includes(',')){
     const customList = this.state.customPrompt.split(',');
     const min = 1;
     const max = customList.length;
     const index = Math.floor((min + Math.random() * (max - min)));
     const randomPrompt = customList[index].trim();
-    this.props.onCustomSubmit(randomPrompt)
-
+    this.props.onCustomSubmit(randomPrompt);
+  } else {
+    this.props.onCustomSubmit(this.state.customPrompt);
+  }
 }
 
   render(){
